@@ -1,4 +1,4 @@
-### SmartHome-master
+### SmartHomeOnNlecloud-master
 
  - 顾名思义：智能管家
  
@@ -11,3 +11,6 @@
  
  -  沉浸式封装： compile 'com.gyf.barlibrary:barlibrary:2.2.6'
  -  轮播图封装： compile 'cn.bingoogolapple:bga-banner:2.1.7@aar'
+
+#### 说明
+基于 GitHub 大神的[SmartHome](https://github.com/xuhongv/SmartHome)项目改写。
