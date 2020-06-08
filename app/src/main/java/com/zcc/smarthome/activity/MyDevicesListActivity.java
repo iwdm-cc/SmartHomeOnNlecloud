@@ -21,9 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 项目名： SmartHome-master
- * 包名名： com.xuhong.smarthome.activity
- * 创建者: xuhong  GitHub-> https://github.com/xuhongv
+ * 项目名： SmartHome
  * 创建时间: 2017/11/14.
  * 描述：我的设备
  */
@@ -44,7 +42,7 @@ public class MyDevicesListActivity extends BaseActivity {
 
     private void initView() {
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         ImmersionBar.setTitleBar(this, toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +56,7 @@ public class MyDevicesListActivity extends BaseActivity {
         for (int i = 0; i < deviceslist.size(); i++) {
             L.e("deviceslist :" + deviceslist.get(i).getIPAddress());
         }
-        mRV_my_devices = (RecyclerView) findViewById(R.id.recyclerView_my_devices);
+        mRV_my_devices = findViewById(R.id.recyclerView_my_devices);
         mRV_my_devices.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         EntranceAdapter adapter = new EntranceAdapter(deviceslist);
         adapter.setOnItemClickListener(new EntranceAdapter.OnItemClickListener() {
@@ -85,15 +83,15 @@ public class MyDevicesListActivity extends BaseActivity {
 
         public EntranceViewHolder(View itemView, final EntranceAdapter.OnItemClickListener listener) {
             super(itemView);
-            shadowContainer = (ShadowContainer) itemView.findViewById(R.id.container);
-            nameTv = (TextView) itemView.findViewById(R.id.entrance_name_tv);
+            shadowContainer = itemView.findViewById(R.id.container);
+            nameTv = itemView.findViewById(R.id.entrance_name_tv);
 
-            mTvMac = (TextView) itemView.findViewById(R.id.tvMac);
-            mTvProduceName = (TextView) itemView.findViewById(R.id.tvProduceName);
-            mTvIPAdress = (TextView) itemView.findViewById(R.id.tvIPAdress);
+            mTvMac = itemView.findViewById(R.id.tvMac);
+            mTvProduceName = itemView.findViewById(R.id.tvProduceName);
+            mTvIPAdress = itemView.findViewById(R.id.tvIPAdress);
 
-            mIvState = (ImageView) itemView.findViewById(R.id.ivState);
-            mTvState = (TextView) itemView.findViewById(R.id.tvState);
+            mIvState = itemView.findViewById(R.id.ivState);
+            mTvState = itemView.findViewById(R.id.tvState);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {

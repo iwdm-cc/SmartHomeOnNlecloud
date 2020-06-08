@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.zcc.smarthome.R;
@@ -151,7 +152,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         adapter.setOnItemClickListener(new mRecyclerViewCardAdapter.OnItemClickListener() {
             @Override
             public void onClick(int position) {
-
+                Toast.makeText(mActivity, "kk"+position, Toast.LENGTH_SHORT).show();
             }
         });
 

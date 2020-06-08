@@ -38,7 +38,6 @@ import com.gizwits.gizwifisdk.api.GizWifiSDK;
 import com.gizwits.gizwifisdk.enumration.GizWifiDeviceNetStatus;
 import com.gizwits.gizwifisdk.enumration.GizWifiErrorCode;
 import com.gizwits.gizwifisdk.listener.GizWifiDeviceListener;
-import com.gizwits.gizwifisdk.listener.GizWifiSDKListener;
 import com.gyf.barlibrary.ImmersionBar;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -223,15 +222,6 @@ public class DevicesFragment extends BaseFragment implements OnRefreshLoadmoreLi
         adapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        L.e("设备列表：onResume");
-        // 每次返回都要注册一次sdk监听器，保证sdk状态能正确回调
-        GizWifiSDK.sharedInstance().setListener(gizWifiSDKListener);
-    }
-
-
     private String getParamFomeUrl(String url, String param) {
         String product_key = "";
         int startindex = url.indexOf(param + "=");
@@ -246,39 +236,7 @@ public class DevicesFragment extends BaseFragment implements OnRefreshLoadmoreLi
         return product_key;
     }
 
-    private GizWifiSDKListener gizWifiSDKListener = new GizWifiSDKListener() {
 
-        /** 用于设备列表 */
-        @Override
-        public void didDiscovered(GizWifiErrorCode result, List<GizWifiDevice> deviceList) {
-            didDevicesCloudBack(result, deviceList);
-        }
-
-        /** 用于设备解绑 */
-        public void didUnbindDevice(GizWifiErrorCode result, java.lang.String did) {
-            if (result == GizWifiErrorCode.GIZ_SDK_SUCCESS) {
-                Toast.makeText(getActivity(), "删除成功！", Toast.LENGTH_SHORT).show();
-                GizWifiSDK.sharedInstance().setListener(gizWifiSDKListener);
-            } else {
-                Toast.makeText(getActivity(), "删除失败！错误码：" + result, Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        /** 用于设备绑定 */
-        public void didBindDevice(GizWifiErrorCode result, java.lang.String did) {
-            Toast.makeText(getActivity(), "恭喜，绑定成功！", Toast.LENGTH_SHORT).show();
-        }
-
-        /** 用于设备绑定（旧） */
-        public void didBindDevice(int error, String errorMessage, String did) {
-            Toast.makeText(getActivity(), "恭喜，绑定成功！", Toast.LENGTH_SHORT).show();
-        }
-
-        /** 用于绑定推送 */
-        public void didChannelIDBind(GizWifiErrorCode result) {
-        }
-
-    };
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -348,7 +306,7 @@ public class DevicesFragment extends BaseFragment implements OnRefreshLoadmoreLi
     @Override
     public void onRefresh(RefreshLayout refreshLayout) {
         L.e("设备列表下拉刷新回调");
-        GizWifiSDK.sharedInstance().setListener(gizWifiSDKListener);
+        GizWifiSDK.sharedInstance().setListener(null);
 
         tipDialog = new QMUITipDialog.Builder(getActivity())
                 .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)

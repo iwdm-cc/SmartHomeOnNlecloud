@@ -21,7 +21,6 @@ public class AlterUserInfActivity extends BaseActivity {
     //用户邮箱
     private EditText register_et_email;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +30,7 @@ public class AlterUserInfActivity extends BaseActivity {
 
     private void initView() {
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         ImmersionBar.setTitleBar(this, toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,8 +38,11 @@ public class AlterUserInfActivity extends BaseActivity {
                 finish();
             }
         });
+       //initInfo();
+    }
 
-        ImageView ivCameraBg = (ImageView) findViewById(R.id.ivCameraBg);
+    private void initInfo() {
+        ImageView ivCameraBg = findViewById(R.id.ivCameraBg);
         User userInfo = BmobUser.getCurrentUser(User.class);
         if (userInfo != null) {
 
@@ -51,16 +53,14 @@ public class AlterUserInfActivity extends BaseActivity {
                     .into(ivCameraBg);
 
             //用户名
-            register_et_name = (EditText) findViewById(R.id.register_et_name);
+            register_et_name = findViewById(R.id.register_et_name);
             register_et_name.setHint(userInfo.getUsername());
 
-
             //用户邮箱
-            register_et_email = (EditText) findViewById(R.id.register_et_email);
+            register_et_email = findViewById(R.id.register_et_email);
             register_et_email.setHint(userInfo.getEmail());
 
         }
-
 
     }
 }

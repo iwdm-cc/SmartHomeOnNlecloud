@@ -16,14 +16,6 @@ import com.zcc.smarthome.utils.PicassoUtils;
 
 import java.util.List;
 
-/**
- * 项目名： SmartHome
- * 包名： com.xuhong.smarthome.adapter
- * 文件名字： DevicesListAdapter
- * 创建时间：2017/8/26 10:02
- * 项目名： Xuhong
- * 描述： 设备列表
- */
 
 public class DevicesListAdapter extends RecyclerView.Adapter<DevicesListAdapter.ViewHolder> {
 

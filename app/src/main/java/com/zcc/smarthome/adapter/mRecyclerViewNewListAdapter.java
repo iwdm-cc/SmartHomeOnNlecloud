@@ -26,7 +26,6 @@ import java.util.List;
 
 public class mRecyclerViewNewListAdapter extends RecyclerView.Adapter<mRecyclerViewNewListAdapter.ViewHolder> {
 
-
     private mRecyclerViewNewListAdapter.OnItemClickListener onItemClickListener;
 
     private Context mContext;
