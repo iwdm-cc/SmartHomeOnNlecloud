@@ -1,16 +1,13 @@
 package com.zcc.smarthome.constant;
 
 /**
- * 项目名： SmartHome
- * 包名： com.xuhong.smarthome.Constant
  * 文件名字： Constant
- * 创建时间：2017/8/7 17:40
- * 项目名： Xuhong
  * 描述： 常量类
  */
 
 public class Constant {
 
+    // todo  请求新大陆云的api 枚举
 
     /**
      * 正则：邮箱

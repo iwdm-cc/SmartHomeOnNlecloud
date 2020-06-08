@@ -1,5 +1,6 @@
 package com.zcc.smarthome;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
@@ -18,6 +19,7 @@ public class Application extends android.app.Application {
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         SmartRefreshLayout.setDefaultRefreshHeaderCreater(new DefaultRefreshHeaderCreater() {
+            @SuppressLint("SimpleDateFormat")
             @NonNull
             @Override
             public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
@@ -41,8 +43,8 @@ public class Application extends android.app.Application {
 
         // 上下文
         mContext = getApplicationContext();
-        //bomb初始化
-//        Bmob.initialize(this, Constant.BMOB_APPLICATION_ID);
+        //todo 新大陆云初始化
+
 
 
     }
