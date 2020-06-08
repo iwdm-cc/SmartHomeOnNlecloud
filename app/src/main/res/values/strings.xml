@@ -1,0 +1,256 @@
+<resources>
+    <string name="app_name" translatable="false">智能管家</string>
+
+    <string-array name="news_index">
+        <item>头条</item>
+        <item>新闻</item>
+        <item>财经</item>
+        <item>体育</item>
+        <item>娱乐</item>
+        <item>军事</item>
+        <item>教育</item>
+        <item>科技</item>
+        <item>NBA</item>
+        <item>股票</item>
+        <item>星座</item>
+        <item>女性</item>
+        <item>健康</item>
+        <item>育儿</item>
+    </string-array>
+
+    <integer-array name="news_index_color">
+        <item>@color/red1</item>
+        <item>@color/yellow0</item>
+        <item>@color/blue0</item>
+        <item>@color/line</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+        <item>@color/red1</item>
+    </integer-array>
+
+    <string name="text_terms">创建账号既代表你同意\n使用条款和隐私条约</string>
+
+
+    <!-- Error Toast -->
+    <string name="GIZ_SDK_PARAM_FORM_INVALID">SDK\'s intenal data form is invalid</string>
+    <string name="GIZ_SDK_CLIENT_NOT_AUTHEN">SDK is starting</string>
+    <string name="GIZ_SDK_CLIENT_VERSION_INVALID">SDK version is invalid</string>
+    <string name="GIZ_SDK_UDP_PORT_BIND_FAILED">UDP port bind failed</string>
+    <string name="GIZ_SDK_DAEMON_EXCEPTION">Exception happened with SDK\'s daemon service </string>
+    <string name="GIZ_SDK_PARAM_INVALID">SDK API param is invalid</string>
+    <string name="GIZ_SDK_APPID_LENGTH_ERROR">The length of AppID is invalid</string>
+    <string name="GIZ_SDK_LOG_PATH_INVALID">SDK\'s Log file path is invalid</string>
+    <string name="GIZ_SDK_LOG_LEVEL_INVALID">The log level is invalid</string>
+    <string name="GIZ_SDK_DEVICE_CONFIG_SEND_FAILED">Device‘s wifi configuration send failed</string>
+    <string name="GIZ_SDK_DEVICE_CONFIG_IS_RUNNING">Device‘s wifi configuration is running</string>
+    <string name="GIZ_SDK_DEVICE_CONFIG_TIMEOUT">Bad network,switch to manual connection</string>
+    <string name="GIZ_SDK_DEVICE_DID_INVALID">DID is invalid</string>
+    <string name="GIZ_SDK_DEVICE_MAC_INVALID">MAC is invalid</string>
+    <string name="GIZ_SDK_SUBDEVICE_DID_INVALID">DID of the sub device is invalid</string>
+    <string name="GIZ_SDK_DEVICE_PASSCODE_INVALID">The passcode is invalid</string>
+    <string name="GIZ_SDK_DEVICE_NOT_SUBSCRIBED">The device is not subscribed</string>
+    <string name="GIZ_SDK_DEVICE_NO_RESPONSE">The device has no response to APP‘s command</string>
+    <string name="GIZ_SDK_DEVICE_NOT_READY">The device is not ready</string>
+    <string name="GIZ_SDK_DEVICE_NOT_BINDED">The device is not binded</string>
+    <string name="GIZ_SDK_DEVICE_CONTROL_WITH_INVALID_COMMAND">There is some invalid command in the control command</string>
+    <string name="GIZ_SDK_DEVICE_CONTROL_FAILED">Failed to controll device</string>
+    <string name="GIZ_SDK_DEVICE_GET_STATUS_FAILED">Failed to get device status</string>
+    <string name="GIZ_SDK_DEVICE_CONTROL_VALUE_TYPE_ERROR">The command param type is error</string>
+    <string name="GIZ_SDK_DEVICE_CONTROL_VALUE_OUT_OF_RANGE">The command param value is out of range</string>
+    <string name="GIZ_SDK_DEVICE_CONTROL_NOT_WRITABLE_COMMAND">There is readonly command in the control command</string>
+    <string name="GIZ_SDK_BIND_DEVICE_FAILED">Failed to bind device</string>
+    <string name="GIZ_SDK_UNBIND_DEVICE_FAILED">Failed to unbind device</string>
+    <string name="GIZ_SDK_DNS_FAILED">Failed to parse DNS</string>
+    <string name="GIZ_SDK_M2M_CONNECTION_SUCCESS">Connect to M2M successfully</string>
+    <string name="GIZ_SDK_SET_SOCKET_NON_BLOCK_FAILED">Failed to set socket non block</string>
+    <string name="GIZ_SDK_CONNECTION_TIMEOUT">Connection timeout</string>
+    <string name="GIZ_SDK_CONNECTION_REFUSED">Connection is refused</string>
+    <string name="GIZ_SDK_CONNECTION_ERROR">Connection error happened</string>
+    <string name="GIZ_SDK_CONNECTION_CLOSED">Connection is cloesed by peer</string>
+    <string name="GIZ_SDK_SSL_HANDSHAKE_FAILED">SSL handshake is failed</string>
+    <string name="GIZ_SDK_DEVICE_LOGIN_VERIFY_FAILED">Device login verified failed</string>
+    <string name="GIZ_SDK_INTERNET_NOT_REACHABLE">The internet is not reachable</string>
+    <string name="GIZ_SDK_HTTP_ANSWER_FORMAT_ERROR">HTTP response data format is error</string>
+    <string name="GIZ_SDK_HTTP_ANSWER_PARAM_ERROR">HTTP response data is error</string>
+    <string name="GIZ_SDK_HTTP_SERVER_NO_ANSWER">HTTP server can not response</string>
+    <string name="GIZ_SDK_HTTP_REQUEST_FAILED">HTTP request failed</string>
+    <string name="GIZ_SDK_OTHERWISE">Other errors</string>
+    <string name="GIZ_SDK_MEMORY_MALLOC_FAILED">Memory malloc failed</string>
+    <string name="GIZ_SDK_THREAD_CREATE_FAILED">Thread create failed</string>
+    <string name="GIZ_SDK_USER_ID_INVALID">The login user ID is invalid</string>
+    <string name="GIZ_SDK_TOKEN_INVALID">The login token is invalid</string>
+    <string name="GIZ_SDK_GROUP_ID_INVALID">The group ID is invalid</string>
+    <string name="GIZ_SDK_GROUPNAME_INVALID">The group name is invalid</string>
+    <string name="GIZ_SDK_GROUP_PRODUCTKEY_INVALID">The group type is invalid</string>
+    <string name="GIZ_SDK_GROUP_FAILED_DELETE_DEVICE">Failed to delete group</string>
+    <string name="GIZ_SDK_GROUP_FAILED_ADD_DEVICE">Failed to add group</string>
+    <string name="GIZ_SDK_GROUP_GET_DEVICE_FAILED">Failed to get the group list</string>
+    <string name="GIZ_SDK_DATAPOINT_NOT_DOWNLOAD">The device datapoint is not download yet</string>
+    <string name="GIZ_SDK_DATAPOINT_SERVICE_UNAVAILABLE">The device datapoint server is unavaliable</string>
+    <string name="GIZ_SDK_DATAPOINT_PARSE_FAILED">Failed to parse the device datapoint</string>
+    <string name="GIZ_SDK_SDK_NOT_INITIALIZED">SDK is not initialized yet</string>
+    <string name="GIZ_SDK_APK_CONTEXT_IS_NULL">The context is null，so can not start SDK</string>
+    <string name="GIZ_SDK_APK_PERMISSION_NOT_SET">The permission for SDK is not set</string>
+    <string name="GIZ_SDK_CHMOD_DAEMON_REFUSED">Failed to change permissions for SDK daemon</string>
+    <string name="GIZ_SDK_EXEC_DAEMON_FAILED">Failed to excute SDK daemon</string>
+    <string name="GIZ_SDK_EXEC_CATCH_EXCEPTION">Exception happened when excute SDK daemon</string>
+    <string name="GIZ_SDK_APPID_IS_EMPTY">The AppId is null，so can not use SDK</string>
+    <string name="GIZ_SDK_UNSUPPORTED_API">It is deprecated API, no longer to provide support </string>
+    <string name="GIZ_SDK_REQUEST_TIMEOUT">SDK API is timeout</string>
+    <string name="GIZ_SDK_DAEMON_VERSION_INVALID">SDK daemon version is invalid</string>
+    <string name="GIZ_SDK_PHONE_NOT_CONNECT_TO_SOFTAP_SSID">Phone is not connect to the device softap ssid</string>
+    <string name="GIZ_SDK_DEVICE_CONFIG_SSID_NOT_MATCHED">The phone\'s wifi and the device onboarding ssid is not the same</string>
+    <string name="GIZ_SDK_NOT_IN_SOFTAPMODE">Device is not in SoftAP mode</string>
+    <string name="GIZ_SDK_PHONE_WIFI_IS_UNAVAILABLE">Phone is not in Wifi network</string>
+    <string name="GIZ_SDK_RAW_DATA_TRANSMIT">It is the raw data transmission</string>
+    <string name="GIZ_SDK_PRODUCT_IS_DOWNLOADING">The device datapoint file is downloading</string>
+    <string name="GIZ_SDK_START_SUCCESS">SDK started successfully</string>
+    <string name="GIZ_SITE_PRODUCTKEY_INVALID">The product key is invalid</string>
+    <string name="GIZ_SITE_DATAPOINTS_NOT_DEFINED">The product datapoint is not defined</string>
+    <string name="GIZ_SITE_DATAPOINTS_NOT_MALFORME">The product datapoint is unavailable</string>
+    <string name="GIZ_OPENAPI_MAC_ALREADY_REGISTERED">mac already registered!</string>
+    <string name="GIZ_OPENAPI_PRODUCT_KEY_INVALID">product_key invalid</string>
+    <string name="GIZ_OPENAPI_APPID_INVALID">appid invalid</string>
+    <string name="GIZ_OPENAPI_TOKEN_INVALID">token invalid</string>
+    <string name="GIZ_OPENAPI_USER_NOT_EXIST">user not exist</string>
+    <string name="GIZ_OPENAPI_TOKEN_EXPIRED">token expired</string>
+    <string name="GIZ_OPENAPI_M2M_ID_INVALID">m2m_id invalid</string>
+    <string name="GIZ_OPENAPI_SERVER_ERROR">server error</string>
+    <string name="GIZ_OPENAPI_CODE_EXPIRED">code expired</string>
+    <string name="GIZ_OPENAPI_CODE_INVALID">code invalid</string>
+    <string name="GIZ_OPENAPI_SANDBOX_SCALE_QUOTA_EXHAUSTED">sandbox scale quota exhausted!</string>
+    <string name="GIZ_OPENAPI_PRODUCTION_SCALE_QUOTA_EXHAUSTED">production scale quota exhausted!</string>
+    <string name="GIZ_OPENAPI_PRODUCT_HAS_NO_REQUEST_SCALE">product has no request scale!</string>
+    <string name="GIZ_OPENAPI_DEVICE_NOT_FOUND">device not found!</string>
+    <string name="GIZ_OPENAPI_FORM_INVALID">form invalid!</string>
+    <string name="GIZ_OPENAPI_DID_PASSCODE_INVALID">did or passcode invalid!</string>
+    <string name="GIZ_OPENAPI_DEVICE_NOT_BOUND">device not bound!</string>
+    <string name="GIZ_OPENAPI_PHONE_UNAVALIABLE">phone unavailable!</string>
+    <string name="GIZ_OPENAPI_USERNAME_UNAVALIABLE">username unavailable!</string>
+    <string name="GIZ_OPENAPI_USERNAME_PASSWORD_ERROR">username or password error!</string>
+    <string name="GIZ_OPENAPI_SEND_COMMAND_FAILED">send command failed!</string>
+    <string name="GIZ_OPENAPI_EMAIL_UNAVALIABLE">email unavailable!</string>
+    <string name="GIZ_OPENAPI_DEVICE_DISABLED">device is disabled!</string>
+    <string name="GIZ_OPENAPI_FAILED_NOTIFY_M2M">fail to notify m2m!</string>
+    <string name="GIZ_OPENAPI_ATTR_INVALID">attr invalid!</string>
+    <string name="GIZ_OPENAPI_USER_INVALID">user invalid!</string>
+    <string name="GIZ_OPENAPI_FIRMWARE_NOT_FOUND">firmware not found!</string>
+    <string name="GIZ_OPENAPI_JD_PRODUCT_NOT_FOUND">JD product info not found!</string>
+    <string name="GIZ_OPENAPI_DATAPOINT_DATA_NOT_FOUND">datapoint data not found!</string>
+    <string name="GIZ_OPENAPI_SCHEDULER_NOT_FOUND">scheduler not found!</string>
+    <string name="GIZ_OPENAPI_QQ_OAUTH_KEY_INVALID">qq oauth key invalid!</string>
+    <string name="GIZ_OPENAPI_OTA_SERVICE_OK_BUT_IN_IDLE">ota upgrade service OK, but in idle or disable!</string>
+    <string name="GIZ_OPENAPI_BT_FIRMWARE_UNVERIFIED">bt firmware unverified, except verify device!</string>
+    <string name="GIZ_OPENAPI_BT_FIRMWARE_NOTHING_TO_UPGRADE">bt firmware is OK, but nothing to upgrade!</string>
+    <string name="GIZ_OPENAPI_SAVE_KAIROSDB_ERROR">Save kairosdb error!</string>
+    <string name="GIZ_OPENAPI_EVENT_NOT_DEFINED">event not defined!</string>
+    <string name="GIZ_OPENAPI_SEND_SMS_FAILED">send sms failed!</string>
+    <string name="GIZ_OPENAPI_APPLICATION_AUTH_INVALID">X-Gizwits-Application-Auth invalid!</string>
+    <string name="GIZ_OPENAPI_NOT_ALLOWED_CALL_API">Not allowed to call deprecated API!</string>
+    <string name="GIZ_OPENAPI_BAD_QRCODE_CONTENT">bad qrcode content!</string>
+    <string name="GIZ_OPENAPI_REQUEST_THROTTLED">request was throttled</string>
+    <string name="GIZ_OPENAPI_DEVICE_OFFLINE">device offline!</string>
+    <string name="GIZ_OPENAPI_TIMESTAMP_INVALID">\'X-Gizwits-Timestamp invalid!</string>
+    <string name="GIZ_OPENAPI_SIGNATURE_INVALID">X-Gizwits-Signature invalid!</string>
+    <string name="GIZ_OPENAPI_DEPRECATED_API">API deprecated!</string>
+    <string name="GIZ_OPENAPI_RESERVED">reserved</string>
+    <string name="GIZ_PUSHAPI_BODY_JSON_INVALID">body json invalid</string>
+    <string name="GIZ_PUSHAPI_DATA_NOT_EXIST">Data Not Exist</string>
+    <string name="GIZ_PUSHAPI_NO_CLIENT_CONFIG">No Client config</string>
+    <string name="GIZ_PUSHAPI_NO_SERVER_DATA">No Server Data</string>
+    <string name="GIZ_PUSHAPI_GIZWITS_APPID_EXIST">Gizwits_appid Already Exist</string>
+    <string name="GIZ_PUSHAPI_PARAM_ERROR">Param Error</string>
+    <string name="GIZ_PUSHAPI_AUTH_KEY_INVALID">Auth_Key Invalid</string>
+    <string name="GIZ_PUSHAPI_APPID_OR_TOKEN_ERROR">Appid or User-Token Error</string>
+    <string name="GIZ_PUSHAPI_TYPE_PARAM_ERROR">Type Param Error</string>
+    <string name="GIZ_PUSHAPI_ID_PARAM_ERROR">Id Param Error</string>
+    <string name="GIZ_PUSHAPI_APPKEY_SECRETKEY_INVALID">ApiKey or SecretKey Param Invalid</string>
+    <string name="GIZ_PUSHAPI_CHANNELID_ERROR_INVALID">ChannelId Param Error</string>
+    <string name="GIZ_PUSHAPI_PUSH_ERROR">Push Error</string>
+    <string name="UNKNOWN_ERROR">Unknow Error</string>
+    <string name="GIZ_OPENAPI_REGISTER_IS_BUSY">Register already in progress!</string>
+    <string name="GIZ_OPENAPI_CANNOT_SHARE_TO_SELF">can not share device to self!</string>
+    <string name="GIZ_OPENAPI_ONLY_OWNER_CAN_SHARE">guest or normal user can not share device!</string>
+    <string name="GIZ_OPENAPI_NOT_FOUND_GUEST">guest user not found!</string>
+    <string name="GIZ_OPENAPI_GUEST_ALREADY_BOUND">guest user alread bound!</string>
+    <string name="GIZ_OPENAPI_NOT_FOUND_SHARING_INFO">sharing record not found!</string>
+    <string name="GIZ_OPENAPI_NOT_FOUND_THE_MESSAGE">message record not found!</string>
+    <string name="GIZ_OPENAPI_SHARING_IS_WAITING_FOR_ACCEPT">sharing alread created, waiting for the guest to accept!</string>
+    <string name="GIZ_OPENAPI_SHARING_IS_EXPIRED">sharing record expired!</string>
+    <string name="GIZ_OPENAPI_SHARING_IS_COMPLETED">sharing record status is not unaccept!</string>
+    <string name="GIZ_OPENAPI_INVALID_SHARING_BECAUSE_UNBINDING">owner binding disabled!</string>
+    <string name="GIZ_OPENAPI_ONLY_OWNER_CAN_BIND">owner exist, guest can not bind!</string>
+    <string name="GIZ_OPENAPI_ONLY_OWNER_CAN_OPERATE">permission denied, you are not owner!</string>
+    <string name="GIZ_OPENAPI_SHARING_ALREADY_CANCELLED">sharing already canceled!</string>
+    <string name="GIZ_OPENAPI_OWNER_CANNOT_UNBIND_SELF">can not unbind self!</string>
+    <string name="GIZ_OPENAPI_ONLY_GUEST_CAN_CHECK_QRCODE">permission denied, you are not guest!</string>
+    <string name="GIZ_OPENAPI_MESSAGE_ALREADY_DELETED">message already deleted!</string>
+    <string name="GIZ_SDK_NO_AVAILABLE_DEVICE">There‘s no available device to set server info</string>
+    <string name="GIZ_OPENAPI_BINDING_NOTIFY_FAILED">notify delele binding failed!</string>
+    <string name="GIZ_OPENAPI_ONLY_SELF_CAN_MODIFY_ALIAS">permission denied, you are not owner or guest!</string>
+    <string name="GIZ_OPENAPI_ONLY_RECEIVER_CAN_MARK_MESSAGE">permission denied, you are not the receiver!</string>
+    <string name="GIZ_SDK_HTTP_SERVER_NOT_SUPPORT_API">Cloud Service does not support the API</string>
+    <string name="GIZ_SDK_ADD_SUBDEVICE_FAILED">Add subdevice failed</string>
+    <string name="GIZ_SDK_DELETE_SUBDEVICE_FAILED">Delete subdevice failed</string>
+    <string name="GIZ_SDK_GET_SUBDEVICES_FAILED">Get subdevice list failed</string>
+
+
+    <string name="statement_title">\t《智能管家》是一款非商业用途的智能电子设备控制、生活工具类（菜谱大全、二维码、手电筒、驾考题库、手机号查询、每日一笑等等）的应用。\n \n
+        \t\t Android 开发攻城狮 徐宏(下面统称小徐) 的个人业余开发作品。\n\n
+         \t《智能管家》接入机智云物联网开源的SDK，控制自己开发的Diy电子设备，尽量以一种简洁纯粹的界面来展现给用户，同时也尽可能多的为用户提供 生活常用的工具和便捷服务。
+    </string>
+
+
+    <string name="statement_userinfo">\t本软件提供给任何个人免费使用和分享，任何个人都有使用本软件中提供的所有功能。本软件不允许任何组织或公司用于其他用途。\n
+        \t在使用过程中禁止作者外的任何个人或组织或公司或其他群体对本软件进行反编译或修改。</string>
+
+
+    <string name="statement_qq">\t《智能管家》是一款使用完全免费的应用，是个人闲余时间因喜好开发并通过网络分享给大家的非商业性的应用，如果用户在使用过程中发现收费的地方或者存在收费才能使用的功能请举报给作者。同时本应用的数据，来自聚合数据平台、极速数据等平台的免费开放API； 相关功能来自各个第三方开放平台；开发中使用大量开源框架，详情查看“开源许可”。\n\n
+        《智能管家》内部使用的图标或图片，大多来自网络免费资源，如果发现存在侵权的资源，请及时联系作者，作者会及时在后续版本中去除。本着本软件从不用于商业用途，对于可能造成的侵权只付采取相应措施的责任，不负任何法律相关的责任。\n\n
+        \t 如果使用者私自作为商业性用途进行贩卖造成侵权或其他非法行为，本人小徐不负任何责任，由使用者承担所有法律责任。
+    </string>
+
+
+    <string name="statement_syqhzscq">此应用及一切属于本应用的所有相关的知识产权、所有权等权利都属于 小徐 个人永久所有，在未事先获得 小徐 书面同意的情况下，你不应：\n
+        \t（Ⅰ）复制、租赁、出售、转让、分配、再授权、分解、逆向工程或反编译、修改或变更任何部分或全部的本应用；\t\n
+        \t（Ⅱ）以虚假身份或第三方身份使用本应用;\t\n
+        \t（Ⅲ）出售或以其他方式利用本应用获利；\t\n
+        \t（Ⅳ）行使其他损害 小徐 利益的行为。\t</string>
+
+    <string name="statement_mail">(以上是本协议的全部内容)基于本应用或本协议及相关协议、规则的任何问题，您可以随时邮件联系我，邮箱地址：xhloveyss@vip.qq.com</string>
+
+    <string name="title_activity_about_me">关于智能管家</string>
+
+    <string name="statement_import">\t上面的协议什么的都是一些没用的话，从这里开始才是重点，才是重点，重点，重要的话说三遍：\t\n\n\n
+    \t 1.本应用目前是一个人业余开发，开发的比较乌龟速度，我不得不承认，目前的版本存在很多不合理不完善的地方，这些问题都会在后续的更新中一一改善和提升。 \n\n
+
+    \t 2.本应用的数据主要来自极速数据平台的新闻收费数据，作者用RMB购买的请求次数。如果显示不出来新闻，那就是次数用完了，你可以自个申请极速数据平台的新闻Api，在源码替换Key值即可。\t\n\n
+
+    \t 3.基于上面第2条，要想提高数据的请求次数，要每月支付几百元的费用才能提高，作者也是一个初出茅庐的小生，真心支付不起。但是如果后期用户增多的话，作者会想一切办法提高数据的请求次数的。（同时如果你喜欢本应用也有能力的话，可以私聊本人赞助作者部分） \t\n\n
+
+    \t 4.设备控制是接入机智云物联网平台开源的安卓SDK、而用户管理是Bomb云自己搭建的用户管理，所以大家使用时候看到的设备是在机智云是匿名登录的token名义下。 \t\n\n
+
+    \t 5.作者在这里像所有人承诺，作者是本着兴趣开发的本应用，绝不作为商业应用，无论什么时候，什么地方，本应用不会绝不会收费，也绝不会引入广告变相收费。\t\n\n
+
+        \t 6.这里调侃一下程序的设计问题呀，作者是一个地地道道的程序猿攻城狮，真心不会设计界面和搭配颜色，也不认识设计尸妹子。所以如果你愿意为本应用的设计提出改进的建议的话，请联系作者，或者将设计图或建议发送到我邮箱，如果得到采纳的话，会将你的大名并入共同设计的名单中。 \t\n</string>
+
+    <string name="about_author">\t\t Hello ，我是本软件创建者小徐，广东阳春人，今年2017年刚毕业，初来乍到，App可能存在bug，但往后一定会修复，不喜勿喷。\t\n\n
+           \t\t App集成了大学学到的硬件控制协议和控制技术以及当前较为流行的Android开源框架，目的在于巩固所学的知识，自己以后面试的一个项目。当然也可以为诸多Android开发爱好者提供一份参考。
+
+    </string>
+    <string name="copyright_once">CopyRight ONCE</string>
+    <string name="copyright">CopyRight@小徐 智能管家</string>
+
+
+</resources>

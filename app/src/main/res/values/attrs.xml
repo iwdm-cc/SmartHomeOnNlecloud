@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="GifView">
+        <attr name="gif" format="reference" />
+        <attr name="paused" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CustomTheme">
+        <attr name="gifViewStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundProgressBar">
+        <attr name="roundColor" format="color" />
+        <attr name="roundProgressColor" format="color" />
+        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="max" format="integer"></attr>
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="style">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TemperatureView">
+        <attr name="backgroundColor" format="color" />
+        <attr name="thermometerColor" format="color" />
+        <attr name="valueColor" format="color" />
+        <attr name="valueSize" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="InfraredView">
+        <attr name="waveColor" format="color|reference" />
+        <attr name="waveCount" format="integer" />
+        <attr name="waveCenterIcon" format="reference" />
+        <attr name="waveText" format="string" />
+
+    </declare-styleable>
+
+
+    <declare-styleable name="ShadowContainer">
+        <attr name="sc_shadowColor" format="color" />
+    </declare-styleable>
+
+</resources>  
