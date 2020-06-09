@@ -7,17 +7,27 @@ import android.graphics.drawable.Drawable;
  */
 
 public class ScencesListBean {
-
+    private String StrategyId;
     private String title;
     private Drawable drawable;
     private boolean isShowGo;
+
+    public String getStrategyId() {
+        return StrategyId;
+    }
+
+    public ScencesListBean setStrategyId(String strategyId) {
+        StrategyId = strategyId;
+        return this;
+    }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public ScencesListBean setTitle(String title) {
         this.title = title;
+        return this;
     }
 
     public Drawable getDrawable() {

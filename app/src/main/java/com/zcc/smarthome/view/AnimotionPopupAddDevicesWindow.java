@@ -17,14 +17,6 @@ import android.widget.PopupWindow;
 
 import com.zcc.smarthome.R;
 
-/**
- * 项目名： SmartHome
- * 包名： com.xuhong.smarthome.view
- * 文件名字： AnimotionPopupAddDevicesWindow
- * 创建时间：2017/7/23 9:57
- * 项目名： Xuhong
- * 描述： TODO
- */
 
 public class AnimotionPopupAddDevicesWindow extends PopupWindow implements View.OnClickListener {
 
@@ -88,17 +80,17 @@ public class AnimotionPopupAddDevicesWindow extends PopupWindow implements View.
         mMenuView = inflater.inflate(R.layout.popup_add_devices, null);
 
 
-        iv_add = (ImageView) mMenuView.findViewById(R.id.dd5);
+        iv_add = mMenuView.findViewById(R.id.dd5);
         iv_add.setOnClickListener(this);
 
-        iv_push_photo = (ImageView) mMenuView.findViewById(R.id.iv_push_photo);
+        iv_push_photo = mMenuView.findViewById(R.id.iv_push_photo);
         iv_push_photo.setOnClickListener(this);
 
-        iv_push_resale = (ImageView) mMenuView.findViewById(R.id.iv_push_resale);
+        iv_push_resale = mMenuView.findViewById(R.id.iv_push_resale);
         iv_push_resale.setOnClickListener(this);
 
-        iv_push_resale_faker = (ImageView) mMenuView.findViewById(R.id.iv_push_resale_faker);
-        iv_push_photo_faker = (ImageView) mMenuView.findViewById(R.id.iv_push_photo_faker);
+        iv_push_resale_faker = mMenuView.findViewById(R.id.iv_push_resale_faker);
+        iv_push_photo_faker = mMenuView.findViewById(R.id.iv_push_photo_faker);
 
 
     }

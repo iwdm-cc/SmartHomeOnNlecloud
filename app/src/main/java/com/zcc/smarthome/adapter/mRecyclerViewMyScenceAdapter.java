@@ -9,20 +9,14 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.bean.ScencesListBean;
 
 import java.util.List;
 
-/**
- * 项目名： SmartHome
- * 包名： com.xuhong.smarthome.view
- * 文件名字： mRecyclerViewMyScenceAdapter
- * 创建时间：2017/8/10 17:40
- * 项目名： Xuhong
- * 描述： 情景组的适配器
- */
+
 public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecyclerViewMyScenceAdapter.ViewHolder> {
 
 
@@ -98,7 +92,7 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
 
 
         } else {
-
+            holder.tvName.setText(beanList.get(position).getTitle());
             holder.allListMode.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -134,7 +128,7 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
     class ViewHolder extends RecyclerView.ViewHolder {
 
         LinearLayout allListModeLaunch;
-
+        TextView tvName;
         RelativeLayout allListMode, allGridMode;
 
         ImageView ivListModeLaunch, ivGridModeLaunch;
@@ -149,6 +143,7 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
                 allListMode = view.findViewById(R.id.allListMode);
                 allListModeLaunch = view.findViewById(R.id.allLaunch);
                 ivListModeLaunch = view.findViewById(R.id.ivLaunch);
+                tvName = view.findViewById(R.id.tvName);
             }
 
         }
@@ -164,7 +159,7 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
         this.launchOnClickListener = itemOnClickListener;
     }
 
-    public void setOnLaunchClickListener(mRecyclerViewMyScenceAdapter.OnItemLongClickListener longClickListener) {
+    public void setlongClickListener(mRecyclerViewMyScenceAdapter.OnItemLongClickListener longClickListener) {
         this.longClickListener = longClickListener;
     }
 
