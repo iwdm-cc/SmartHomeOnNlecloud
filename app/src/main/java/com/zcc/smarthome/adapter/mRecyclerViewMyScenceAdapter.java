@@ -105,7 +105,6 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
             holder.allListModeLaunch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
                     rotateAnimation.setDuration(2000);
                     rotateAnimation.setFillAfter(true);

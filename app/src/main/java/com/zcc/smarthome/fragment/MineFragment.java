@@ -106,10 +106,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
 
             case R.id.ivIcon:
-                //判断是否已经登录
-//                if (BmobUser.getCurrentUser(User.class) == null) {
-//                    startActivity(new Intent(getActivity(), LoginActivity.class));
-//                } else {
                     List<String> list = new ArrayList<>();
                     list.add("更改头像");
                     list.add("切换账号");
@@ -138,7 +134,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                             }
                         }
                     });
-//                }
                 break;
             //设备分享
             case R.id.tvShareDevices:
