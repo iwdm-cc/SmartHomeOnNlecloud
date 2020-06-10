@@ -19,12 +19,13 @@
             app:title="">
 
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="情景模式"
-                android:textColor="@color/black0"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
         </android.support.v7.widget.Toolbar>
 

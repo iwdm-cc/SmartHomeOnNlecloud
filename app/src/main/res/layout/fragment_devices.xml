@@ -4,8 +4,7 @@
     android:id="@+id/main_content"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@mipmap/ic_gb">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -26,7 +25,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="我的设备"
-                android:textColor="@color/black0"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
         </android.support.v7.widget.Toolbar>
 

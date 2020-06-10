@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView mIv_message_normal;
     private TextView mIv_message_press;
     private TextView mTv_message_normal;
-    private TextView mTv_message_press;
+
     private TextView mIv_mine_press;
     private TextView mIv_mine_normal;
     private TextView mTv_mine_normal;
@@ -99,7 +99,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mIv_message_normal = findViewById(R.id.iv_message_normal);
         mIv_message_press = findViewById(R.id.iv_message_press);
         mTv_message_normal = findViewById(R.id.tv_message_normal);
-        mTv_message_press = findViewById(R.id.tv_message_press);
 
 
         mIv_mine_press = findViewById(R.id.iv_mine_press);
@@ -166,7 +165,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     mTv_fishpond_press.setTextColor(Color.argb(diaphaneity_two, 255, 197, 27));
 
                     mTv_message_normal.setTextColor(Color.argb(diaphaneity_two, 153, 153, 153));
-                    mTv_message_press.setTextColor(Color.argb(diaphaneity_one, 255, 197, 27));
+
 
                     break;
 
@@ -178,7 +177,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     mIv_mine_press.getBackground().setAlpha(diaphaneity_one);
 
 
-                    mTv_message_press.setTextColor(Color.argb(diaphaneity_two, 255, 197, 27));
                     mTv_message_normal.setTextColor(Color.argb(diaphaneity_one, 153, 153, 153));
 
 
@@ -225,7 +223,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         mTv_home_press.setTextColor(Color.argb(0, 69, 192, 26));
         mTv_fishpond_press.setTextColor(Color.argb(0, 69, 192, 26));
-        mTv_message_press.setTextColor(Color.argb(0, 69, 192, 26));
+
         mTv_mine_press.setTextColor(Color.argb(0, 69, 192, 26));
     }
 
@@ -252,7 +250,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 mViewPager.setCurrentItem(2, false);
                 mIv_message_press.getBackground().setAlpha(255);
-                mTv_message_press.setTextColor(Color.argb(255, 153, 153, 153));
+
                 break;
 
             case R.id.all_four:

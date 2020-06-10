@@ -163,19 +163,10 @@
                 android:layout_below="@+id/iv_message_normal"
                 android:layout_centerInParent="true"
                 android:padding="2dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:text="情景"
                 android:textSize="10sp" />
 
-            <TextView
-                android:id="@+id/tv_message_press"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_message_normal"
-                android:layout_centerInParent="true"
-                android:padding="2dp"
-                android:text="生活"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="10sp" />
 
         </RelativeLayout>
 

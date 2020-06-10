@@ -1,7 +1,6 @@
 package com.zcc.smarthome.fragment;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,7 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,7 +50,6 @@ import com.zcc.smarthome.adapter.DevicesListAdapter;
 import com.zcc.smarthome.constant.Constant;
 import com.zcc.smarthome.utils.L;
 import com.zcc.smarthome.utils.SharePreUtils;
-import com.zcc.smarthome.utils.SoftInputUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -289,7 +286,6 @@ public class DevicesFragment extends BaseFragment implements OnRefreshLoadmoreLi
                         new CustomBaseDialog(getActivity(), mGizWifiDevice).show();
                         break;
                     case 1:
-                        renameDevicesDialog(mGizWifiDevice);
                         break;
                     case 2:
                         showDialogDevicesInf(mGizWifiDevice);
@@ -394,46 +390,6 @@ public class DevicesFragment extends BaseFragment implements OnRefreshLoadmoreLi
         }
     }
 
-    //重命名
-    private void renameDevicesDialog(final GizWifiDevice mGizWifiDevice) {
-
-        final View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_rename, null);
-        final AlertDialog dialog = new AlertDialog.Builder(getActivity())
-                .setView(view)
-                .show();
-
-        final EditText rename_et = dialog.findViewById(R.id.rename_et);
-        SoftInputUtils.showSoftInput(getActivity());
-
-        dialog.findViewById(R.id.tv_cancel_rename).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //如果用户没有输入文字直接点击取消就关闭
-                if (rename_et.getText().toString().isEmpty()) {
-                    dialog.dismiss();
-                    return;
-                }
-                dialog.dismiss();
-                hideKeyBoard();
-            }
-        });
-
-        dialog.findViewById(R.id.tv_sure_rename).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String name = rename_et.getText().toString();
-                if (name.isEmpty()) {
-                    Toast.makeText(getActivity(), "输入不能为空!", Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
-                    return;
-                }
-                mGizWifiDevice.setCustomInfo(null, name);
-                hideKeyBoard();
-                dialog.dismiss();
-
-            }
-        });
-    }
 
 
     //获取设备信息

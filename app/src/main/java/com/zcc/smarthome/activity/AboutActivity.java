@@ -2,7 +2,6 @@ package com.zcc.smarthome.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -201,11 +200,10 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener 
                 break;
             //声明
             case R.id.OIViewState:
-                startActivity(new Intent(AboutActivity.this, StatementActivity.class));
                 break;
             //关于作者
             case R.id.OIViewAbout:
-                startActivity(new Intent(AboutActivity.this, AboutAuthorActivity.class));
+
                 break;
             //意见反馈
             case R.id.OIViewOpinion:

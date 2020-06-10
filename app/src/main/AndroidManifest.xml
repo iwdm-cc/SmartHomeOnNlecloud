@@ -45,9 +45,13 @@
         <activity
             android:name="com.zcc.smarthome.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name="com.zcc.smarthome.activity.SearchNewsActivity" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity android:name="com.zcc.smarthome.activity.WebViewActivity" />
 
@@ -59,15 +63,10 @@
         <activity
             android:name="com.zcc.smarthome.activity.WelcomeActivity"
             android:theme="@style/mAppThemeFullSceen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
-        <activity android:name="com.zcc.smarthome.activity.RegisterActivity" />
-        <activity android:name="com.zcc.smarthome.activity.ForgetPasswordActivity" />
+
         <activity android:name="com.zcc.smarthome.activity.AlterUserInfActivity" />
 
         <!-- 此处兼容安卓7.0拍照 -->
@@ -89,8 +88,6 @@
 
         <activity android:name="com.zcc.smarthome.activity.DevicesControlActivity.SocPetActivity" />
         <activity android:name="com.zcc.smarthome.activity.AboutActivity" />
-        <activity android:name="com.zcc.smarthome.activity.StatementActivity" />
-        <activity android:name="com.zcc.smarthome.activity.AboutAuthorActivity" />
         <activity android:name="com.zcc.smarthome.activity.MyDevicesListActivity" />
     </application>
 

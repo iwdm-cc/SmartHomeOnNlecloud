@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SmartHome-master.iml" filepath="$PROJECT_DIR$/SmartHome-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nlecloud-sdk/nlecloud-sdk.iml" filepath="$PROJECT_DIR$/nlecloud-sdk/nlecloud-sdk.iml" />
     </modules>
   </component>
 </project>

@@ -1,8 +1,6 @@
 package com.zcc.smarthome.activity;
 
 
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
@@ -11,7 +9,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.zcc.smarthome.R;
@@ -211,11 +207,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_registered:
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
                 break;
-
             case R.id.login_forget:
-                startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
+
                 break;
 
             case R.id.ivname_goneAll:
@@ -274,38 +268,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
-    private void showForgetPw() {
 
-        View view = getLayoutInflater().inflate(R.layout.dialog_forget_password, null);
-
-        final AlertDialog dialog = new AlertDialog.Builder(LoginActivity.this)
-                .setView(view)
-                .show();
-
-        final EditText forgetps_et = (EditText) view.findViewById(R.id.forgetps_et);
-        Button tv_cancel = (Button) view.findViewById(R.id.tv_cancel);
-        tv_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-
-        Button tv_sure = (Button) view.findViewById(R.id.tv_sure);
-        tv_sure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(LoginActivity.this, "ddd", Toast.LENGTH_LONG).show();
-                String string = forgetps_et.getText().toString();
-
-                Log.e("==w", "xiaojianpan:" + string);
-                dialog.dismiss();
-            }
-        });
-
-
-    }
 }
 

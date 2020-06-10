@@ -1,1 +1,1 @@
-include ':app',':nlecloud-sdk'
+include ':app'
