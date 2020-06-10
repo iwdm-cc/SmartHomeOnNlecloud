@@ -16,14 +16,6 @@ import com.zcc.smarthome.R;
 
 import java.util.ArrayList;
 
-/**
- * 项目名：   CSDN_BlueTooth-master
- * 包名：     com.xuhong.csdn_bluetooth_master
- * 文件名：   RippleView
- * 创建者：   xuhong
- * 创建时间： 2017/9/7 10:48
- * 描述：   雷达涟漪的view开发
- */
 
 public class RippleView extends RelativeLayout {
 

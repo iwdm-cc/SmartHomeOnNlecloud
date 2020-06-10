@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/ic_gb">
 
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -385,13 +383,6 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_weight="1">
-
-                    <cn.fanrunqi.waveprogress.WaveProgressView
-                        android:id="@+id/WaveLoadingView"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/circle" />
 
 
                     <TextView

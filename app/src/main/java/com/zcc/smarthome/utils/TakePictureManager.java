@@ -31,14 +31,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * 项目名：TakePictureManager
- * 包名：com.xuhong.takepictureandroidn_master
- * 文件名：TakePictureManager
- * 创建时间：2017/8/18 12:08
- * 创建者： 徐宏  http://blog.csdn.net/xh870189248
- * 描述：只为适配Android N 拍照和本地相册上传封装而生
- */
 
 public class TakePictureManager {
 

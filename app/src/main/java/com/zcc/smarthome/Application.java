@@ -46,7 +46,6 @@ public class Application extends android.app.Application {
         //todo 新大陆云初始化
 
 
-
     }
 
 

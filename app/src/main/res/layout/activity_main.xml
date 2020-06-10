@@ -15,7 +15,6 @@
 
     <!--底部导航栏-->
     <LinearLayout
-        android:id="@+id/ll_bottom"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"

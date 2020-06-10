@@ -26,11 +26,7 @@ import com.zcc.smarthome.R;
 import java.util.List;
 
 /**
- * 项目名： animotionpopupwindow_master
- * 包名： com.xuhong.animotionpopupwindow_master
- * 文件名字： AnimotionPopupWindow
- * 创建时间：2017/8/16 14:45
- * 作者： Xuhong
+
  * 描述： 带动画效果的PopupWindow (高仿ios)
  */
 

@@ -21,13 +21,6 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-/**
- * 项目名： SmartHome-master
- * 包名名： com.xuhong.smarthome.view
- * 创建者: xuhong  GitHub-> https://github.com/xuhongv
- * 创建时间: 2017/11/9.
- * 描述：TOMO
- */
 
 public class BubbleView extends RelativeLayout {
     private List<Drawable> drawableList = new ArrayList();

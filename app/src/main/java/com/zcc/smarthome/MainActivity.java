@@ -1,6 +1,5 @@
 package com.zcc.smarthome;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -56,7 +55,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//        GradientDrawable gradientDrawable =new GradientDrawable();
         //设置为黑色的状态栏
         ImmersionBar.with(this)
                 .statusBarDarkFont(true, 0.2f)
@@ -89,23 +88,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mTv_home_normal = findViewById(R.id.tv_home_normal);
         mTv_home_press = findViewById(R.id.tv_home_press);
 
-
         mIv_fishpond_press = findViewById(R.id.iv_fishpond_press);
         mIv_fishpond_normal = findViewById(R.id.iv_fishpond_normal);
         mTv_fishpond_normal = findViewById(R.id.tv_fishpond_normal);
         mTv_fishpond_press = findViewById(R.id.tv_fishpond_press);
 
-
         mIv_message_normal = findViewById(R.id.iv_message_normal);
         mIv_message_press = findViewById(R.id.iv_message_press);
         mTv_message_normal = findViewById(R.id.tv_message_normal);
-
 
         mIv_mine_press = findViewById(R.id.iv_mine_press);
         mIv_mine_normal = findViewById(R.id.iv_mine_normal);
         mTv_mine_normal = findViewById(R.id.tv_mine_normal);
         mTv_mine_press = findViewById(R.id.tv_mine_press);
-
 
         mViewPager = findViewById(R.id.mViewPager);
         fragmentList = new ArrayList<>();
@@ -157,15 +152,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 case 1:
                     mIv_fishpond_normal.getBackground().setAlpha(diaphaneity_one);
                     mIv_fishpond_press.getBackground().setAlpha(diaphaneity_two);
-
                     mIv_message_normal.getBackground().setAlpha(diaphaneity_two);
                     mIv_message_press.getBackground().setAlpha(diaphaneity_one);
-
                     mTv_fishpond_normal.setTextColor(Color.argb(diaphaneity_one, 153, 153, 153));
                     mTv_fishpond_press.setTextColor(Color.argb(diaphaneity_two, 255, 197, 27));
-
                     mTv_message_normal.setTextColor(Color.argb(diaphaneity_two, 153, 153, 153));
-
 
                     break;
 
@@ -278,8 +269,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     }
                 });
                 animotionPopupAddDevicesWindow.show();
-
-
                 break;
 
         }
@@ -291,7 +280,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             exit();
             return false;
-
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -305,11 +293,4 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             finish();
         }
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-
 }

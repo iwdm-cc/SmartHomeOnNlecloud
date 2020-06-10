@@ -23,13 +23,11 @@
     </android.support.v7.widget.Toolbar>
     <!--拍照-->
     <FrameLayout
-        android:id="@+id/llCamera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
 
         <ImageView
-            android:id="@+id/ivCameraBg"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center" />
@@ -59,7 +57,6 @@
                 android:layout_toStartOf="@+id/ivname_goneAll">
 
                 <EditText
-                    android:id="@+id/register_et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
@@ -84,7 +81,6 @@
 
         <!--邮箱-->
         <RelativeLayout
-            android:id="@+id/rlUserEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_bg"
@@ -92,7 +88,6 @@
             android:focusableInTouchMode="true">
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInLayPass3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -100,7 +95,6 @@
                 android:layout_toStartOf="@+id/cb_eye_gone3">
 
                 <EditText
-                    android:id="@+id/register_et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
@@ -129,7 +123,6 @@
 
         <!--修改按钮-->
         <Button
-            android:id="@+id/btn_register"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"

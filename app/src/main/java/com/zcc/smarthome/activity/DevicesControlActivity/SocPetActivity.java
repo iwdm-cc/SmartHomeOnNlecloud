@@ -29,8 +29,7 @@ public class SocPetActivity extends BaseDevicesControlActivity implements View.O
     //色彩
     private SeekBarColorPicker seekBarColorPicker;
 
-    //湿度
-    private cn.fanrunqi.waveprogress.WaveProgressView mWaveLoadingView;
+
     private TextView mTvHumidness;
 
     //温度
@@ -115,18 +114,6 @@ public class SocPetActivity extends BaseDevicesControlActivity implements View.O
         mTemperatureView.setProgress(tempTemperture + 40);
         mTvTemper.setText("当前温度：" + tempTemperture + "°");
 
-        //湿度
-        if (tempHumidity < 50) {
-            mWaveLoadingView.setCurrent(tempHumidity, "干燥！");
-            mWaveLoadingView.setMaxProgress(100);
-            mWaveLoadingView.setWaveColor("#F08B88");
-        } else if (tempHumidity > 60) {
-            mWaveLoadingView.setCurrent(tempHumidity, "舒适！");
-            mWaveLoadingView.setWaveColor("#45C01A");
-        } else {
-            mWaveLoadingView.setCurrent(tempHumidity, "潮湿！");
-            mWaveLoadingView.setWaveColor("#5be4ef");
-        }
 
         mTvHumidness.setText("当前湿度：" + tempHumidity);
 
@@ -171,11 +158,6 @@ public class SocPetActivity extends BaseDevicesControlActivity implements View.O
         mSbRed.setMax(254);
         mSbGreen.setMax(254);
         mSbBlue.setMax(254);
-
-
-        //湿度
-        mWaveLoadingView = (cn.fanrunqi.waveprogress.WaveProgressView) findViewById(R.id.WaveLoadingView);
-        mWaveLoadingView.setCurrent(0, "未知");
 
 
         //温度

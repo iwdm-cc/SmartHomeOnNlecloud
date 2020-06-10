@@ -8,22 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="mAppTheme" parent="QMUI.Compat">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="mAppThemeMyActionBar" parent="QMUI.Compat">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
 
     <style name="mAppThemeFullSceen" parent="QMUI.Compat.NoActionBar">
         <!-- Customize your theme here. -->
@@ -99,22 +83,5 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="QMUI.Compat" />
-
-    <style name="AppTheme.PopupOverlay" parent="QMUI.Compat" />
-
-    <style name="Setting">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="Setting.Title">
-        <item name="android:paddingLeft">15dp</item>
-        <item name="android:paddingRight">5dp</item>
-        <item name="android:paddingTop">15dp</item>
-        <item name="android:paddingBottom">10dp</item>
-        <item name="android:textColor">@color/colorPrimaryDark</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
 
 </resources>

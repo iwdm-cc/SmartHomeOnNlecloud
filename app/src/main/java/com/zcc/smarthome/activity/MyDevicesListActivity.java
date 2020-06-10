@@ -20,11 +20,6 @@ import com.zcc.smarthome.view.ShadowContainer;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 项目名： SmartHome
- * 创建时间: 2017/11/14.
- * 描述：我的设备
- */
 
 public class MyDevicesListActivity extends BaseActivity {
 
@@ -156,14 +151,6 @@ public class MyDevicesListActivity extends BaseActivity {
             ShadowContainer.ShadowDrawable shadowDrawable = holder.shadowContainer.getShadowDrawable();
             shadowDrawable.setCornerRadius((int) (holder.shadowContainer.getResources().getDisplayMetrics().density * 4));
             shadowDrawable.setColors(sPalettes[randow]);
-
-//            if (deviceslist.get(position).getAlias() != null && deviceslist.get(position).getAlias().isEmpty()) {
-//                holder.nameTv.setText(deviceslist.get(position).getAlias());
-//            } else {
-//                holder.nameTv.setText(deviceslist.get(position).getProductName());
-//            }
-
-
         }
 
         @Override

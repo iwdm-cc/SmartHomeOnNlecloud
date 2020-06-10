@@ -21,13 +21,7 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.zcc.smarthome.R;
-import com.zcc.smarthome.bean.User;
 import com.zcc.smarthome.utils.SharePreUtils;
-import com.zcc.smarthome.utils.ToastUtils;
-
-import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.SaveListener;
 
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
@@ -209,7 +203,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.login_registered:
                 break;
             case R.id.login_forget:
-
                 break;
 
             case R.id.ivname_goneAll:
@@ -220,27 +213,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.btn_login:
                 if (!login_et_name.getText().toString().isEmpty() && !login_et_password.getText().toString().isEmpty()) {
 
-                    final User user = new User();
-                    user.setUsername(login_et_name.getText().toString());
-                    user.setPassword(login_et_password.getText().toString());
-                    user.login(new SaveListener<BmobUser>() {
-                        @Override
-                        public void done(BmobUser bmobUser, BmobException e) {
-                            if (e == null) {
-                                saveUserAccount();
-                                finish();
-                            } else {
-                                switch (e.getErrorCode()) {
-                                    case 101:
-                                        ToastUtils.showToast(LoginActivity.this, "用户名或密码不正确哦！");
-                                        break;
-                                    default:
-                                        ToastUtils.showToast(LoginActivity.this, "出了点小问题，请重试！错误码：" + e.getErrorCode());
-                                        break;
-                                }
-                            }
-                        }
-                    });
 
 
                 } else {

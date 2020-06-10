@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -31,13 +30,11 @@ public class WebViewActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
-
         initData();
         initWebView();
     }
 
     private void initData() {
-
 
         Intent intent = this.getIntent();
         webUrl = intent.getStringExtra("_webUrl");
@@ -45,35 +42,17 @@ public class WebViewActivity extends BaseActivity {
         String picTitle = intent.getStringExtra("_picTitle");
 
         //设置标题
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         ImmersionBar.setTitleBar(this, toolbar);
         toolbar.setTitle(webTitle);
-        toolbar.inflateMenu(R.menu.menu_news_detail);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.menu_share_sina:
-                        break;
-                    case R.id.menu_shareweichatCircle:
-                        break;
-                    case R.id.menu_share_weichatfriend:
-                        break;
-                    case R.id.menu_shareQQ:
-                        break;
-
-                }
-                return true;
-            }
-        });
-        mWebView = (WebView) findViewById(R.id.mWebView);
-        ivImage = (ImageView) findViewById(R.id.ivImage);
+        mWebView = findViewById(R.id.mWebView);
+        ivImage = findViewById(R.id.ivImage);
         //如果图片为null，则显示默认的图片
         if (picTitle.isEmpty()) {
             PicassoUtils.loadImageViewFromLocal(this, R.mipmap.ic_webview_bg, ivImage);
@@ -86,7 +65,7 @@ public class WebViewActivity extends BaseActivity {
 
     @SuppressLint("SetJavaScriptEnabled")
     private void initWebView() {
-        mWebView = (WebView) findViewById(R.id.mWebView);
+        mWebView = findViewById(R.id.mWebView);
         //支持JS
         mWebView.getSettings().setJavaScriptEnabled(true);
         //支持缩放

@@ -7,28 +7,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
 import com.zcc.smarthome.R;
-import com.zcc.smarthome.activity.AboutActivity;
 import com.zcc.smarthome.activity.AlterUserInfActivity;
 import com.zcc.smarthome.activity.MyDevicesListActivity;
-import com.zcc.smarthome.bean.User;
 import com.zcc.smarthome.utils.TakePictureManager;
 import com.zcc.smarthome.utils.ToastUtils;
 import com.zcc.smarthome.view.AnimotionPopupWindow;
-import com.zcc.smarthome.view.BlurTransformation;
-import com.zcc.smarthome.view.CircleTransform;
 import com.zcc.smarthome.view.PullScrollView;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.datatype.BmobFile;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.UpdateListener;
-import cn.bmob.v3.listener.UploadFileListener;
 
 
 public class MineFragment extends BaseFragment implements View.OnClickListener {
@@ -84,7 +73,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         pullView = view.findViewById(R.id.pullView);
         pullView.setZoomView(ivHeaderBg);
 
-//        getUserInf();
 
     }
 
@@ -126,7 +114,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                                     break;
                                 //退出登录
                                 case 2:
-                                    User.logOut();
                                     ToastUtils.showToast(getActivity(), "退出成功！");
 //                                    getUserInf();
                                     break;
@@ -153,46 +140,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             case R.id.OVWeather:
                 break;
             case R.id.OVAbout:
-                startActivity(new Intent(getActivity(), AboutActivity.class));
                 break;
         }
     }
 
-    /**
-     * 获取当前用户信息
-     */
-    private void getUserInf() {
-        User userInfo = BmobUser.getCurrentUser(User.class);
-        if (userInfo != null) {
-            String nick = userInfo.getNick();
-            Picasso.with(getActivity())
-                    .load(nick)
-                    .transform(new BlurTransformation(getActivity()))
-                    .fit()
-                    .into(ivHeaderBg);
 
-            Picasso.with(getActivity())
-                    .load(nick)
-                    .transform(new CircleTransform())
-                    .into(ivmeIcon);
-
-            tvName.setText(userInfo.getUsername());
-
-        } else {
-            Picasso.with(getActivity())
-                    .load(R.mipmap.ic_mine_header_bg)
-                    .transform(new BlurTransformation(getActivity()))
-                    .fit()
-                    .into(ivHeaderBg);
-
-            Picasso.with(getActivity())
-                    .load(R.mipmap.ic_unget)
-                    .transform(new CircleTransform())
-                    .into(ivmeIcon);
-
-            tvName.setText("欢迎使用智能管家");
-        }
-    }
 
 
     private void changeMyIcon() {
@@ -226,7 +178,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         takePictureManager.setTakePictureCallBackListener(new TakePictureManager.takePictureCallBackListener() {
             @Override
             public void successful(boolean isTailor, File outFile, Uri filePath) {
-                updataMyicon(outFile);
+
             }
 
             @Override
@@ -245,7 +197,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         takePictureManager.setTakePictureCallBackListener(new TakePictureManager.takePictureCallBackListener() {
             @Override
             public void successful(boolean isTailor, File outFile, Uri filePath) {
-                updataMyicon(outFile);
+
             }
 
             @Override
@@ -257,48 +209,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     }
 
 
-    private void updataMyicon(final File outFile) {
-        final User userInfo = BmobUser.getCurrentUser(User.class);
-        //删除当前文件
-        BmobFile file = new BmobFile();
-        file.setUrl(userInfo.getNick());//此url是上传文件成功之后通过bmobFile.getUrl()方法获取的。
-        file.delete(new UpdateListener() {
-            @Override
-            public void done(BmobException e) {
-                if (e == null) {
-                    final BmobFile bmobFile = new BmobFile(outFile);
-                    bmobFile.uploadblock(new UploadFileListener() {
-                        @Override
-                        public void done(BmobException e) {
-                            if (e == null) {
-                                userInfo.setNick(bmobFile.getFileUrl());
-                                userInfo.update(new UpdateListener() {
-                                    @Override
-                                    public void done(BmobException e) {
-                                        if (e == null) {
-                                            ToastUtils.showToast(getActivity(), "更新用户信息成功:");
-                                            getUserInf();
-                                        }
-                                    }
-                                });
 
-                            } else {
-                                ToastUtils.showToast(getActivity(), "上传文件失败：" + e.getMessage());
-                            }
-
-                        }
-
-                        @Override
-                        public void onProgress(Integer value) {
-                            // 返回的上传进度（百分比）
-                        }
-                    });
-                } else {
-                    ToastUtils.showToast(getActivity(), "失败：" + e.getErrorCode() + "," + e.getMessage());
-                }
-            }
-        });
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

@@ -6,14 +6,10 @@
         android:id="@+id/menu_id_handAddDevices" />
 
 
-    <item
-        android:title="扫码添加设备"
-        android:id="@+id/menu_id_scanAddDevices" />
+    <item android:title="扫码添加设备" />
 
 
-    <item
-        android:title="登录机智云账号"
-        android:id="@+id/menu_id_login_in" />
+    <item android:title="登录机智云账号" />
 
 
 </menu>

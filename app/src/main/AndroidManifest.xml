@@ -31,7 +31,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-        android:name="com.zcc.smarthome.Application"
+        android:name=".Application"
         android:allowBackup="true"
         android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
@@ -43,7 +43,7 @@
 
         <!-- 主界面 -->
         <activity
-            android:name="com.zcc.smarthome.MainActivity"
+            android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
             <intent-filter>
@@ -53,21 +53,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.zcc.smarthome.activity.WebViewActivity" />
+        <activity android:name=".activity.WebViewActivity" />
 
         <activity
-            android:name="com.zcc.smarthome.activity.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:configChanges="orientation|keyboardHidden" >
-
         </activity>
         <activity
-            android:name="com.zcc.smarthome.activity.WelcomeActivity"
+            android:name=".activity.WelcomeActivity"
             android:theme="@style/mAppThemeFullSceen">
-
         </activity>
 
 
-        <activity android:name="com.zcc.smarthome.activity.AlterUserInfActivity" />
+        <activity android:name=".activity.AlterUserInfActivity" />
 
         <!-- 此处兼容安卓7.0拍照 -->
         <provider
@@ -82,13 +80,12 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
 
-        <activity android:name="com.zcc.smarthome.activity.DevicesControlActivity.SmartLightActivity" />
+        <activity android:name=".activity.DevicesControlActivity.SmartLightActivity" />
         <!-- airlink配网模式 -->
-        <activity android:name="com.zcc.smarthome.activity.ConfigActivity.AirLinkAddDevicesActivity" />
+        <activity android:name=".activity.ConfigActivity.AirLinkAddDevicesActivity" />
 
-        <activity android:name="com.zcc.smarthome.activity.DevicesControlActivity.SocPetActivity" />
-        <activity android:name="com.zcc.smarthome.activity.AboutActivity" />
-        <activity android:name="com.zcc.smarthome.activity.MyDevicesListActivity" />
+        <activity android:name=".activity.DevicesControlActivity.SocPetActivity" />
+        <activity android:name=".activity.MyDevicesListActivity" />
     </application>
 
 </manifest>

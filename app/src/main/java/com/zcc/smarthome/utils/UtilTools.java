@@ -5,14 +5,6 @@ import android.graphics.Typeface;
 import android.widget.TextView;
 
 
-/**
- * 项目名： UtilTools
- * 包名： com.xuhong.smarthome.utils
- * 文件名字： UtilTools
- * 创建时间：2017/8/16 14:45
- * 作者： Xuhong
- * 描述： UtilToolsg工具类
- */
 
 public class UtilTools {
 

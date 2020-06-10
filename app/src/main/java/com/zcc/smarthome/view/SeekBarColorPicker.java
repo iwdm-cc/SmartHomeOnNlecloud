@@ -11,14 +11,6 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * 项目名： SeekBarColorPicker-master
- * 包名： com.csdn.seekbarcolorpicker_master
- * 文件名字： SeekBarColorPicker
- * 创建时间：2017/10/31 20:27
- * 项目名： Xuhong
- * 描述： 七彩色圆环采集器
- */
 
 public class SeekBarColorPicker extends View {
 
