@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zcc.smarthome.R;
 
 
@@ -37,7 +38,7 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.layout_item_list_mode_scence, parent, false);
+        View view = inflater.inflate(R.layout.layout_item_list_dev, parent, false);
 
         return new mRecyclerViewAdapter.ViewHolder(view);
 
@@ -45,27 +46,24 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-
-        holder.tvName.setText(String.format("%s%s", jsonArray.getJSONObject(position).getString("Name"), jsonArray.getJSONObject(position).getString("Value")));
-        holder.allListMode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (itemOnClickListener != null) {
-                    itemOnClickListener.onClick(position);
-                }
+        JSONObject jsonObject = jsonArray.getJSONObject(position);
+        if (!jsonObject.getString("Groups").equals("2")) {
+            holder.allLaunch.setVisibility(View.INVISIBLE);
+        }
+        holder.tvName.setText(String.format("%s - %s", jsonObject.getString("Name"), jsonObject.getString("Value")));
+        holder.allListMode.setOnClickListener(v -> {
+            if (itemOnClickListener != null) {
+                itemOnClickListener.onClick(position);
             }
         });
 
-        holder.allListModeLaunch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
-                rotateAnimation.setDuration(2000);
-                rotateAnimation.setFillAfter(true);
-                holder.ivListModeLaunch.startAnimation(rotateAnimation);
-                if (launchOnClickListener != null) {
-                    launchOnClickListener.onClick(position);
-                }
+        holder.allListModeLaunch.setOnClickListener(v -> {
+            RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+            rotateAnimation.setDuration(2000);
+            rotateAnimation.setFillAfter(true);
+            holder.ivListModeLaunch.startAnimation(rotateAnimation);
+            if (launchOnClickListener != null) {
+                launchOnClickListener.onClick(position);
             }
         });
     }
@@ -82,7 +80,7 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
         LinearLayout allListModeLaunch;
         TextView tvName;
         LinearLayout allListMode;
-
+        LinearLayout allLaunch;
         ImageView ivListModeLaunch;
 
 
@@ -92,6 +90,7 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
             ivListModeLaunch = view.findViewById(R.id.ivLaunch);
             tvName = view.findViewById(R.id.tvName);
             allListMode = view.findViewById(R.id.allListMode);
+            allLaunch = view.findViewById(R.id.allLaunch);
         }
     }
 

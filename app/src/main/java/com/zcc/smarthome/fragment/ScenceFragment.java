@@ -17,6 +17,7 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.adapter.mRecyclerViewMyScenceAdapter;
 import com.zcc.smarthome.bean.ScencesListBean;
+import com.zcc.smarthome.constant.Constant;
 import com.zcc.smarthome.utils.OkHttpUtils;
 
 import java.io.IOException;
@@ -95,7 +96,7 @@ public class ScenceFragment extends BaseFragment {
 //        });
 
 
-        OkHttpUtils.getInstance().getStrategys("1", new Callback() {
+        OkHttpUtils.getInstance().getStrategys(Constant.ProjectID, Constant.DeviceID, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 handler.obtainMessage(TOASTED, "请检查网络！").sendToTarget();

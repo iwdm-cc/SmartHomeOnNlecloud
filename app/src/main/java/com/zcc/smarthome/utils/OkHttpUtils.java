@@ -51,17 +51,6 @@ public class OkHttpUtils {
         return instance;
     }
 
-    //通用的根据url发送json数据 get请求
-    public void sendCommon(String jsonUrl, Callback callback) {
-        //2 创建一个网络请求
-        Request request = new Request.Builder()
-                //json数据的网址
-                .url(jsonUrl)
-                .get()
-                .build();
-
-        client.newCall(request).enqueue(callback);
-    }
 
     /**
      * projects/{projectid}/sensors
@@ -78,25 +67,26 @@ public class OkHttpUtils {
     }
 
     /**
-     * 获取关键字的新闻列表
+     * 发送命令/控制设备
      */
 
-    public void getKeyList(String key, String appkey, Callback callback) {
+    public void cmds(String deviceId, String apiTag, Callback callback) {
 
         RequestBody requestBodyPost = new FormBody.Builder()
-                .add("keyword", key)//要获取的新闻频道
-                .add("appkey", appkey)//appkey
+                .add("deviceId", deviceId)//要获取的新闻频道
+                .add("apiTag", apiTag)//appkey
                 .build();
 
         Request requestPost = new Request.Builder()
-                .url("http://api.jisuapi.com/news/search")
+                .addHeader("AccessToken", WelcomeActivity.token)
+                .url(String.format("http://api.nlecloud.com/Cmds?deviceId=%s&apiTag=%s", deviceId, apiTag))
                 .post(requestBodyPost)
                 .build();
         client.newCall(requestPost).enqueue(callback);
     }
 
     /**
-     * 启用/禁用策略
+     * 登录
      */
     public void Login(String Account, String Password, Callback callback) {
 
@@ -134,11 +124,11 @@ public class OkHttpUtils {
     /**
      * 查询策略
      */
-    public void getStrategys(String key, Callback callback) {
+    public void getStrategys(String ProjectID, String DeviceID, Callback callback) {
 
         Request requestPost = new Request.Builder()
                 .addHeader("AccessToken", WelcomeActivity.token)
-                .url("http://api.nlecloud.com/Strategys?ProjectID=39626&DeviceID=50733")
+                .url(String.format("http://api.nlecloud.com/Strategys?ProjectID=%s&DeviceID=%s", ProjectID, DeviceID))
                 .get()
                 .build();
         client.newCall(requestPost).enqueue(callback);

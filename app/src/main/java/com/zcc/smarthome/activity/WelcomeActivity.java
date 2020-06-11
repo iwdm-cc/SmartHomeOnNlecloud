@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 import com.zcc.smarthome.MainActivity;
 import com.zcc.smarthome.R;
+import com.zcc.smarthome.constant.Constant;
 import com.zcc.smarthome.utils.OkHttpUtils;
 
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void startMain() {
-        new OkHttpUtils().Login("15736178664", "123456", new Callback() {
+        new OkHttpUtils().Login(Constant.Account, Constant.Password, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 runOnUiThread(() -> Toast.makeText(WelcomeActivity.this, "网络错误！", Toast.LENGTH_SHORT).show());

@@ -196,6 +196,13 @@ public class DevicesFragment extends BaseFragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setAdapter(mScenceAdapter);
+        recyclerView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDevicesInfDialog();
+                return false;
+            }
+        });
     }
 
 

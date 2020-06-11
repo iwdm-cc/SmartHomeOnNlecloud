@@ -77,20 +77,12 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
 
     @Override
-    public void onResume() {
-        super.onResume();
-//        getUserInf();
-    }
-
-    @Override
     public void onClick(final View v) {
         switch (v.getId()) {
 
             //我的设备
             case R.id.tvDevices:
-
                 break;
-
 
             case R.id.ivIcon:
                     List<String> list = new ArrayList<>();

@@ -32,14 +32,15 @@
 
     <application
         android:name=".Application"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:replace="android:allowBackup,android:icon">
+        tools:replace="android:allowBackup,android:icon"
+        tools:ignore="GoogleAppIndexingWarning">
 
         <!-- 主界面 -->
         <activity
@@ -67,20 +68,6 @@
 
 
         <activity android:name=".activity.AlterUserInfActivity" />
-
-        <!-- 此处兼容安卓7.0拍照 -->
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-
-            <!-- 元数据 -->
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_provider_paths" />
-        </provider>
-
     </application>
 
 </manifest>
