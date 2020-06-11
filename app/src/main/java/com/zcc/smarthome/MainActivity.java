@@ -23,15 +23,12 @@ public class MainActivity extends BaseActivity {
 
     public long exitTime = 0;
 
-    private List<android.support.v4.app.Fragment> fragmentList;
-
     private BottomNavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //设置为黑色的状态栏
         ImmersionBar.with(this)
                 .statusBarDarkFont(true, 0.2f)
                 .init();
@@ -67,7 +64,7 @@ public class MainActivity extends BaseActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         mViewPager = findViewById(R.id.mViewPager);
-        fragmentList = new ArrayList<>();
+        List<android.support.v4.app.Fragment> fragmentList = new ArrayList<>();
 
         fragmentList.add(new HomeFragment());
         fragmentList.add(new DevicesFragment());
@@ -76,7 +73,6 @@ public class MainActivity extends BaseActivity {
         MainViewPagerAdapter mAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), fragmentList);
         mViewPager.setAdapter(mAdapter);
         mViewPager.addOnPageChangeListener(mListener);
-        //默认是显示第一个
         iconSeletor(0);
     }
 

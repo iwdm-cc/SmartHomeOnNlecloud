@@ -2,6 +2,8 @@ package com.zcc.smarthome.utils;
 
 import android.util.Log;
 
+import com.zcc.smarthome.activity.WelcomeActivity;
+
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
@@ -62,21 +64,15 @@ public class OkHttpUtils {
     }
 
     /**
-     * 获取指定类型的新闻列表
+     * projects/{projectid}/sensors
      */
 
-    public void getMyNewsList(String channel, int start, int num, String appkey, Callback callback) {
-
-        RequestBody requestBodyPost = new FormBody.Builder()
-                .add("channel", channel)//要获取的新闻频道
-                .add("num", Integer.toString(num))//每次请求的数目
-                .add("start", Integer.toString(start))//开始条目
-                .add("appkey", appkey)//appkey
-                .build();
+    public void getMyNewsList(String projectid, Callback callback) {
 
         Request requestPost = new Request.Builder()
-                .url("http://api.jisuapi.com/news/get")
-                .post(requestBodyPost)
+                .addHeader("AccessToken", WelcomeActivity.token)
+                .url(String.format("http://api.nlecloud.com/projects/%s/sensors", projectid))
+                .get()
                 .build();
         client.newCall(requestPost).enqueue(callback);
     }
@@ -102,6 +98,24 @@ public class OkHttpUtils {
     /**
      * 启用/禁用策略
      */
+    public void Login(String Account, String Password, Callback callback) {
+
+        RequestBody requestBodyPost = new FormBody.Builder()
+                .add("Account", Account)
+                .add("Password", Password)
+                .build();
+
+        Request requestPost = new Request.Builder()
+                .url("http://api.nlecloud.com/Users/Login")
+                .post(requestBodyPost)
+                .build();
+        client.newCall(requestPost).enqueue(callback);
+
+    }
+
+    /**
+     * 启用/禁用策略
+     */
     public void setEnable(String ID, String enable, Callback callback) {
 
         RequestBody requestBodyPost = new FormBody.Builder()
@@ -109,7 +123,7 @@ public class OkHttpUtils {
                 .build();
 
         Request requestPost = new Request.Builder()
-                .addHeader("AccessToken", "6EE4C265B6452601B64D990064C52E4EF3B8A61ECE75A4F7D372824529FE77EB8B81A027DF856A72AA6632AF33D219946536061180FB54F7411894ED89FD944A8387239045A241022C79AA97A09DF3182CDA6D766AC99252E1533B4F468C2FD08D8DF2A1B9948B5C3C3C3E5599AEA047C3848A3696094682635BB1460C8146CC829D2F9DE07C1556F8704C83146ABFE8B1465089A4D1C77E00754AFD61B0959C211D9E8594B4B00C554D7A38ECDADEA88F1C07DA4F86D655463B6E19F9607E9082D2CCDD141540571BAD6D6163E72A08696948C95486062DE7101FE7E0F18821")
+                .addHeader("AccessToken", WelcomeActivity.token)
                 .url(String.format("http://api.nlecloud.com/Strategys/Enable/%s?strategyID=%s&enable=%s", ID, ID, enable))
                 .post(requestBodyPost)
                 .build();
@@ -123,7 +137,7 @@ public class OkHttpUtils {
     public void getStrategys(String key, Callback callback) {
 
         Request requestPost = new Request.Builder()
-                .addHeader("AccessToken", "6EE4C265B6452601B64D990064C52E4EF3B8A61ECE75A4F7D372824529FE77EB8B81A027DF856A72AA6632AF33D219946536061180FB54F7411894ED89FD944A8387239045A241022C79AA97A09DF3182CDA6D766AC99252E1533B4F468C2FD08D8DF2A1B9948B5C3C3C3E5599AEA047C3848A3696094682635BB1460C8146CC829D2F9DE07C1556F8704C83146ABFE8B1465089A4D1C77E00754AFD61B0959C211D9E8594B4B00C554D7A38ECDADEA88F1C07DA4F86D655463B6E19F9607E9082D2CCDD141540571BAD6D6163E72A08696948C95486062DE7101FE7E0F18821")
+                .addHeader("AccessToken", WelcomeActivity.token)
                 .url("http://api.nlecloud.com/Strategys?ProjectID=39626&DeviceID=50733")
                 .get()
                 .build();

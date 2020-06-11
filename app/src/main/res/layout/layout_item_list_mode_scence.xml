@@ -1,56 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/allListMode"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/allListMode"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:background="@drawable/shape_bg_scence_click"
-    android:layout_height="100dp"
-    android:padding="15dp">
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bg_scence_click">
 
-    <ImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="18dp"
-        android:src="@mipmap/noti_scene_back_home" />
-
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:maxLines="1"
-        android:text="回家模式"
-        android:textSize="15sp" />
-
-    <LinearLayout
-        android:id="@+id/allLaunch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/selector_button_bg"
-        android:gravity="center"
-        android:padding="5dp">
-
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="14dp"
+        card_view:cardBackgroundColor="@color/colorAccent"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="5dp"
+        card_view:contentPadding="8dp">
+        <!--子布局控件-->
         <ImageView
-            android:id="@+id/ivLaunch"
+            android:id="@+id/ivIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="5dp"
-            android:src="@drawable/ic_launch" />
-
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/noti_scene_back_home" />
 
         <TextView
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="启动"
-            android:textColor="@color/black0"
-            android:textSize="12sp" />
+            android:layout_gravity="center"
+            android:maxLines="1"
+            android:text="回家模式"
 
-    </LinearLayout>
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:id="@+id/allLaunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:background="@drawable/selector_button_bg"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/ivLaunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:src="@drawable/ic_launch" />
 
 
-</RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="启动"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

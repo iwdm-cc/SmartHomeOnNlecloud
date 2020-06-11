@@ -11,15 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zcc.smarthome.R;
-import com.zcc.smarthome.bean.ScencesListBean;
-
-import java.util.List;
 
 
-public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecyclerViewMyScenceAdapter.ViewHolder> {
+public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdapter.ViewHolder> {
 
 
-    private List<ScencesListBean> beanList;
+    private com.alibaba.fastjson.JSONArray jsonArray;
 
     private LayoutInflater inflater;
 
@@ -30,8 +27,8 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
 
     private OnItemLongClickListener longClickListener;
 
-    public mRecyclerViewMyScenceAdapter(List<ScencesListBean> beanList, Context mContext) {
-        this.beanList = beanList;
+    public mRecyclerViewAdapter(com.alibaba.fastjson.JSONArray beanList, Context mContext) {
+        this.jsonArray = beanList;
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -40,14 +37,14 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
 
         View view = inflater.inflate(R.layout.layout_item_list_mode_scence, parent, false);
 
-        return new mRecyclerViewMyScenceAdapter.ViewHolder(view);
+        return new mRecyclerViewAdapter.ViewHolder(view);
 
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-//        holder.tvName.setText(beanList.get(position).getTitle());
+        holder.tvName.setText(jsonArray.getJSONObject(position).getString("Name") + jsonArray.getJSONObject(position).getString("Value"));
         holder.allListMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +71,7 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
 
     @Override
     public int getItemCount() {
-        return beanList.size();
+        return jsonArray.size();
     }
 
 
@@ -97,16 +94,16 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
     }
 
 
-    public void setOnItemClickListener(mRecyclerViewMyScenceAdapter.OnItemClickListener itemOnClickListener) {
+    public void setOnItemClickListener(mRecyclerViewAdapter.OnItemClickListener itemOnClickListener) {
         this.itemOnClickListener = itemOnClickListener;
     }
 
 
-    public void setOnLaunchClickListener(mRecyclerViewMyScenceAdapter.OnLaunchClickListener itemOnClickListener) {
+    public void setOnLaunchClickListener(mRecyclerViewAdapter.OnLaunchClickListener itemOnClickListener) {
         this.launchOnClickListener = itemOnClickListener;
     }
 
-    public void setlongClickListener(mRecyclerViewMyScenceAdapter.OnItemLongClickListener longClickListener) {
+    public void setlongClickListener(mRecyclerViewAdapter.OnItemLongClickListener longClickListener) {
         this.longClickListener = longClickListener;
     }
 

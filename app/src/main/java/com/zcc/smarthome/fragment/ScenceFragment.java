@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -41,12 +39,13 @@ public class ScenceFragment extends BaseFragment {
             if (msg.what == GDATA) {
                 beanList.clear();
                 JSONArray jsonArray = (JSONArray) msg.obj;
+                Toast.makeText(mActivity, "数量" + jsonArray.size(), Toast.LENGTH_SHORT).show();
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     beanList.add(new ScencesListBean().setStrategyId(jsonObject.getString("StrategyId"))
                             .setTitle(jsonObject.getString("ConditionCn")));
                 }
-                rV_Mode(false);
+                rV_Mode();
             } else if (msg.what == TOASTED) {
                 Toast.makeText(mActivity, " " + msg.obj, Toast.LENGTH_SHORT).show();
             }
@@ -78,28 +77,23 @@ public class ScenceFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         toolbarl = view.findViewById(R.id.toolbar);
-        toolbarl.inflateMenu(R.menu.menu_scence_add);
-        toolbarl.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.menu_id_list_mode:
-                        rV_Mode(false);
-                        break;
-                    case R.id.menu_id_grid_mode:
-                        rV_Mode(true);
-                        mScenceAdapter.notifyDataSetChanged();
-                        break;
-                }
-                return false;
-            }
-        });
-        toolbarl.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                handler.obtainMessage(TOASTED, "toolbar！").sendToTarget();
-            }
-        });
+//        toolbarl.inflateMenu(R.menu.menu_scence_add);
+//        toolbarl.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                switch (item.getItemId()) {
+//                    case R.id.menu_id_list_mode:
+//                        rV_Mode(false);
+//                        break;
+//                    case R.id.menu_id_grid_mode:
+//                        rV_Mode(true);
+//                        mScenceAdapter.notifyDataSetChanged();
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
+
 
         OkHttpUtils.getInstance().getStrategys("1", new Callback() {
             @Override
@@ -124,18 +118,11 @@ public class ScenceFragment extends BaseFragment {
 
     }
 
-    private void rV_Mode(boolean isGridMode) {
-        if (isGridMode) {
-            GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
-            mScenceAdapter = new mRecyclerViewMyScenceAdapter(beanList, true, getActivity());
-            rVMyScences.setLayoutManager(gridLayoutManager);
-            rVMyScences.removeItemDecoration(dividerItemDecoration);
-            rVMyScences.setAdapter(mScenceAdapter);
-        } else {
+    private void rV_Mode() {
             rVMyScences.removeItemDecoration(dividerItemDecoration);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
             linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-            mScenceAdapter = new mRecyclerViewMyScenceAdapter(beanList, false, getActivity());
+        mScenceAdapter = new mRecyclerViewMyScenceAdapter(beanList, getActivity());
             mScenceAdapter.setOnLaunchClickListener(new mRecyclerViewMyScenceAdapter.OnLaunchClickListener() {
                 @Override
                 public void onClick(int position) {
@@ -154,11 +141,16 @@ public class ScenceFragment extends BaseFragment {
                     });
                 }
             });
+        mScenceAdapter.setOnItemClickListener(new mRecyclerViewMyScenceAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                handler.obtainMessage(TOASTED, "开启成功" + position).sendToTarget();
+            }
+        });
             rVMyScences.setLayoutManager(linearLayoutManager);
             rVMyScences.addItemDecoration(dividerItemDecoration);
             rVMyScences.setAdapter(mScenceAdapter);
         }
-    }
 
 
 }

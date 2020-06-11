@@ -5,17 +5,28 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.BounceInterpolator;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.zcc.smarthome.MainActivity;
 import com.zcc.smarthome.R;
+import com.zcc.smarthome.utils.OkHttpUtils;
 import com.zcc.smarthome.utils.UtilTools;
 
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+
 public class WelcomeActivity extends AppCompatActivity {
+    public static String token = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +37,27 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void startMain() {
-        Intent intent = new Intent();
-        intent.setClass(WelcomeActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        new OkHttpUtils().Login("15736178664", "123456", new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(() -> Toast.makeText(WelcomeActivity.this, "网络错误！", Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    JSONObject jsonObject = JSONObject.parseObject(response.body().string());
+                    token = jsonObject.getJSONObject("ResultObj").getString("AccessToken");
+                }
+            }
+        });
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent();
+            intent.setClass(WelcomeActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }, 3000);
+
     }
 
     private void initView() {

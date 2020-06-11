@@ -46,11 +46,7 @@
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".activity.WebViewActivity" />
@@ -62,6 +58,11 @@
         <activity
             android:name=".activity.WelcomeActivity"
             android:theme="@style/mAppThemeFullSceen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 
@@ -80,10 +81,6 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
 
-        <!-- airlink配网模式 -->
-        <activity android:name=".activity.ConfigActivity.AirLinkAddDevicesActivity" />
-
-        <activity android:name=".activity.DevicesControlActivity.SocPetActivity" />
     </application>
 
 </manifest>
