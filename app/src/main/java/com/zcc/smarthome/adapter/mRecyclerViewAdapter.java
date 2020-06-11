@@ -1,6 +1,7 @@
 package com.zcc.smarthome.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +33,9 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = inflater.inflate(R.layout.layout_item_list_mode_scence, parent, false);
 
@@ -42,9 +44,9 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-        holder.tvName.setText(jsonArray.getJSONObject(position).getString("Name") + jsonArray.getJSONObject(position).getString("Value"));
+        holder.tvName.setText(String.format("%s%s", jsonArray.getJSONObject(position).getString("Name"), jsonArray.getJSONObject(position).getString("Value")));
         holder.allListMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

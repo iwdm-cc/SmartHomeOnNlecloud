@@ -12,12 +12,9 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
-import com.romainpiel.shimmer.Shimmer;
-import com.romainpiel.shimmer.ShimmerTextView;
 import com.zcc.smarthome.MainActivity;
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.utils.OkHttpUtils;
-import com.zcc.smarthome.utils.UtilTools;
 
 import java.io.IOException;
 
@@ -61,11 +58,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        //字体设置
-        Shimmer shimmer = new Shimmer();
-        ShimmerTextView shimmer_login = findViewById(R.id.shimmer_login);
-        UtilTools.setFont(this, shimmer_login);
-        shimmer.start(shimmer_login);
+
 
         //动画设置
         RelativeLayout all = findViewById(R.id.all);
