@@ -8,7 +8,7 @@ package com.zcc.smarthome.constant;
 public class Constant {
 
     /**
-     * 新大陆
+     * 新大陆 项目信息
      */
     public static String Account = "15736178664";
     public static String Password = "123456";
