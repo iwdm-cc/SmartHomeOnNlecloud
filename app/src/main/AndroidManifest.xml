@@ -80,12 +80,10 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
 
-        <activity android:name=".activity.DevicesControlActivity.SmartLightActivity" />
         <!-- airlink配网模式 -->
         <activity android:name=".activity.ConfigActivity.AirLinkAddDevicesActivity" />
 
         <activity android:name=".activity.DevicesControlActivity.SocPetActivity" />
-        <activity android:name=".activity.MyDevicesListActivity" />
     </application>
 
 </manifest>

@@ -58,7 +58,6 @@
                     android:padding="15dp">
 
                     <RelativeLayout
-                        android:id="@+id/all_one"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="bottom"

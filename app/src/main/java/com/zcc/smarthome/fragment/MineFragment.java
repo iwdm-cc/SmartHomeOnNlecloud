@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.activity.AlterUserInfActivity;
-import com.zcc.smarthome.activity.MyDevicesListActivity;
 import com.zcc.smarthome.utils.TakePictureManager;
 import com.zcc.smarthome.utils.ToastUtils;
 import com.zcc.smarthome.view.AnimotionPopupWindow;
@@ -89,7 +88,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
             //我的设备
             case R.id.tvDevices:
-                startActivity(new Intent(getActivity(), MyDevicesListActivity.class));
+
                 break;
 
 
