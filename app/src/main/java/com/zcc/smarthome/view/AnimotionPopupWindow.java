@@ -73,6 +73,7 @@ public class AnimotionPopupWindow extends PopupWindow {
         this.setBackgroundDrawable(dw);
         //mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
         view.setOnTouchListener(new View.OnTouchListener() {
+
             public boolean onTouch(View v, MotionEvent event) {
                 int height = view.findViewById(R.id.lv).getTop();
                 int y = (int) event.getY();
@@ -86,7 +87,7 @@ public class AnimotionPopupWindow extends PopupWindow {
         });
 
 
-        /** LayoutAnimation */
+        /* LayoutAnimation */
         // 从自已3倍的位置下面移到自己原来的位置
         TranslateAnimation animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF,
                 0f, Animation.RELATIVE_TO_SELF, 3f, Animation.RELATIVE_TO_SELF, 0);
@@ -97,7 +98,7 @@ public class AnimotionPopupWindow extends PopupWindow {
         mLac = new LayoutAnimationController(animation, 0.12f);
         mLac.setInterpolator(new DecelerateInterpolator());
 
-        /** 初始化控件*/
+        /* 初始化控件*/
         Button button = (Button) view.findViewById(R.id.btCancle);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

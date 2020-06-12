@@ -1,7 +1,9 @@
 package com.zcc.smarthome.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,10 +49,17 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         JSONObject jsonObject = jsonArray.getJSONObject(position);
+        boolean flog = position % 2 == 0;
+
+        holder.item_card.setCardBackgroundColor(flog ? Color.WHITE : Color.parseColor("#26AAFD"));
+        holder.tvName.setTextColor(flog ? Color.BLACK : Color.WHITE);
+
+
         if (!jsonObject.getString("Groups").equals("2")) {
             holder.allLaunch.setVisibility(View.INVISIBLE);
         }
-        holder.tvName.setText(String.format("%s - %s", jsonObject.getString("Name"), jsonObject.getString("Value")));
+
+        holder.tvName.setText(String.format("%s - %s %s", jsonObject.getString("Name"), jsonObject.getString("Value"), jsonObject.getString("Unit")));
         holder.allListMode.setOnClickListener(v -> {
             if (itemOnClickListener != null) {
                 itemOnClickListener.onClick(position);
@@ -82,7 +91,7 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
         LinearLayout allListMode;
         LinearLayout allLaunch;
         ImageView ivListModeLaunch;
-
+        CardView item_card;
 
         ViewHolder(View view) {
             super(view);
@@ -91,6 +100,7 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
             tvName = view.findViewById(R.id.tvName);
             allListMode = view.findViewById(R.id.allListMode);
             allLaunch = view.findViewById(R.id.allLaunch);
+            item_card = view.findViewById(R.id.item_card);
         }
     }
 

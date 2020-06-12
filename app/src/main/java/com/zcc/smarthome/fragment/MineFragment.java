@@ -4,15 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.activity.AlterUserInfActivity;
 import com.zcc.smarthome.utils.TakePictureManager;
-import com.zcc.smarthome.utils.ToastUtils;
 import com.zcc.smarthome.view.AnimotionPopupWindow;
-import com.zcc.smarthome.view.PullScrollView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,13 +18,6 @@ import java.util.List;
 public class MineFragment extends BaseFragment implements View.OnClickListener {
 
 
-    private ImageView ivHeaderBg;
-    private ImageView ivmeIcon;
-    private PullScrollView pullView;
-    private TextView tvName;
-    private TextView mTvDevices;
-    private TextView mTvShareDevices;
-    private TextView mTvDevicesLog;
     private com.lqr.optionitemview.OptionItemView mOVUserInf;
     private com.lqr.optionitemview.OptionItemView mOVCarText;
     private com.lqr.optionitemview.OptionItemView mOVDayHappy;
@@ -46,12 +35,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     @Override
     protected void initView(View view) {
 
-        mTvDevices = view.findViewById(R.id.tvDevices);
-        mTvDevices.setOnClickListener(this);
-        mTvShareDevices = view.findViewById(R.id.tvShareDevices);
-        mTvShareDevices.setOnClickListener(this);
-        mTvDevicesLog = view.findViewById(R.id.tvDevicesLog);
-        mTvDevicesLog.setOnClickListener(this);
 
         mOVUserInf = view.findViewById(R.id.OVUserInf);
         mOVUserInf.setOnClickListener(this);
@@ -65,61 +48,12 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         OVVegetable.setOnClickListener(this);
 
 
-        ivHeaderBg = view.findViewById(R.id.ivHeaderBg);
-        ivmeIcon = view.findViewById(R.id.ivIcon);
-        tvName = view.findViewById(R.id.tvName);
-        ivmeIcon.setOnClickListener(this);
-        pullView = view.findViewById(R.id.pullView);
-        pullView.setZoomView(ivHeaderBg);
-
-
     }
 
 
     @Override
     public void onClick(final View v) {
         switch (v.getId()) {
-
-            //我的设备
-            case R.id.tvDevices:
-                break;
-
-            case R.id.ivIcon:
-                    List<String> list = new ArrayList<>();
-                    list.add("更改头像");
-                    list.add("切换账号");
-                    list.add("退出登录");
-                    AnimotionPopupWindow popupWindow = new AnimotionPopupWindow(getActivity(), list);
-                    popupWindow.show();
-                    popupWindow.setAnimotionPopupWindowOnClickListener(new AnimotionPopupWindow.AnimotionPopupWindowOnClickListener() {
-                        @Override
-                        public void onPopWindowClickListener(int position) {
-                            switch (position) {
-                                //更改头像
-                                case 0:
-                                    changeMyIcon();
-                                    break;
-                                //切换账号
-                                case 1:
-                                    startActivity(new Intent(getActivity(), AlterUserInfActivity.class));
-                                    break;
-                                //退出登录
-                                case 2:
-                                    ToastUtils.showToast(getActivity(), "退出成功！");
-//                                    getUserInf();
-                                    break;
-
-                            }
-                        }
-                    });
-                break;
-            //设备分享
-            case R.id.tvShareDevices:
-                break;
-            //设备日志
-            case R.id.tvDevicesLog:
-                break;
-
             case R.id.OVUserInf:
                 startActivity(new Intent(getActivity(), AlterUserInfActivity.class));
                 break;

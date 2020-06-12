@@ -4,10 +4,10 @@
     android:id="@+id/allListMode"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/shape_bg_scence_click">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/item_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="14dp"

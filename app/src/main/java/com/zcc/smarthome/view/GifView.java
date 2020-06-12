@@ -117,6 +117,7 @@ public class GifView extends View {
         return this.mPaused;
     }
 
+    //判断view的大小
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mMovie != null) {

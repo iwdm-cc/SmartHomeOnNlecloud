@@ -60,6 +60,8 @@ public class MainActivity extends BaseActivity {
     };
 
     private void bindViews() {
+
+
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

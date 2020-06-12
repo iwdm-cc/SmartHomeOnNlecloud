@@ -25,7 +25,9 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.adapter.mRecyclerViewAdapter;
+import com.zcc.smarthome.constant.Constant;
 import com.zcc.smarthome.utils.OkHttpUtils;
+import com.zcc.smarthome.utils.ToastUtils;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -69,7 +71,12 @@ public class DevicesFragment extends BaseFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ImmersionBar.setTitleBar(getActivity(), toolbarl);
-        new OkHttpUtils().getMyNewsList("39626", new Callback() {
+        getMyNewsList();
+
+    }
+
+    private void getMyNewsList() {
+        new OkHttpUtils().getMyNewsList(Constant.ProjectID, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
 
@@ -80,7 +87,7 @@ public class DevicesFragment extends BaseFragment {
                 if (response.isSuccessful()) {
                     JSONObject jsonObject = JSONObject.parseObject(response.body().string());
                     jsonArray = jsonObject.getJSONArray("ResultObj");
-                    getActivity().runOnUiThread(new Runnable() {
+                    mHandler.post(new Runnable() {
                         @Override
                         public void run() {
                             datazc();
@@ -89,27 +96,6 @@ public class DevicesFragment extends BaseFragment {
                 }
             }
         });
-//        toolbarl.inflateMenu(R.menu.menu_devices_add_login_out);
-//        toolbarl.setOverflowIcon(getActivity().getResources().getDrawable(R.drawable.ic_toolbar_devices_add));
-//        toolbarl.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                switch (item.getItemId()) {
-//                    //手动添加设备
-//                    case R.id.menu_id_handAddDevices:
-//                        break;
-//                    default:
-//                        tipDialog = new QMUITipDialog.Builder(getActivity())
-//                                .setIconType(QMUITipDialog.Builder.ICON_TYPE_FAIL)
-//                                .setTipWord("sorry，暂未加入此功能！")
-//                                .create();
-//                        tipDialog.show();
-//                        mHandler.sendEmptyMessageDelayed(105, 1500);
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
 
     }
 
@@ -128,42 +114,27 @@ public class DevicesFragment extends BaseFragment {
         mRefreshLayout.setOnRefreshLoadmoreListener(new OnRefreshLoadmoreListener() {
             @Override
             public void onLoadmore(RefreshLayout refreshlayout) {
-                mRefreshLayout.finishLoadmore();
+                ToastUtils.showToast(getContext(), "上来刷新");
             }
 
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-
-
                 tipDialog = new QMUITipDialog.Builder(getActivity())
                         .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
                         .setTipWord("正在刷新...")
                         .create();
                 tipDialog.show();
+                getMyNewsList();
 
-                if (false) {
-                    mRefreshLayout.finishRefresh();
+                mRefreshLayout.finishRefresh();
 
-
-                    tipDialog.dismiss();
-                    tipDialog = new QMUITipDialog.Builder(getActivity())
-                            .setIconType(QMUITipDialog.Builder.ICON_TYPE_SUCCESS)
-                            .setTipWord("刷新成功")
-                            .create();
-                    tipDialog.show();
-                    mHandler.sendEmptyMessageDelayed(105, 1700);
-                } else {
-                    mRefreshLayout.finishRefresh();
-
-
-                    tipDialog.dismiss();
-                    tipDialog = new QMUITipDialog.Builder(getActivity())
-                            .setIconType(QMUITipDialog.Builder.ICON_TYPE_FAIL)
-                            .setTipWord("暂无设备")
-                            .create();
-                    tipDialog.show();
-                    mHandler.sendEmptyMessageDelayed(105, 1700);
-                }
+                tipDialog.dismiss();
+                tipDialog = new QMUITipDialog.Builder(getActivity())
+                        .setIconType(QMUITipDialog.Builder.ICON_TYPE_SUCCESS)
+                        .setTipWord("刷新成功")
+                        .create();
+                tipDialog.show();
+                mHandler.sendEmptyMessageDelayed(105, 1700);
 
             }
         });
@@ -196,11 +167,10 @@ public class DevicesFragment extends BaseFragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setAdapter(mScenceAdapter);
-        recyclerView.setOnLongClickListener(new View.OnLongClickListener() {
+        mScenceAdapter.setOnItemClickListener(new mRecyclerViewAdapter.OnItemClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(int position) {
                 showDevicesInfDialog();
-                return false;
             }
         });
     }

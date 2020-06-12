@@ -17,149 +17,26 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <FrameLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="200dp">
 
-                <ImageView
-                    android:id="@+id/ivHeaderBg"
-                    android:layout_width="match_parent"
-                    android:layout_height="240dp" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:layout_gravity="center">
-
-                    <ImageView
-                        android:id="@+id/ivIcon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true" />
-
-                    <TextView
-                        android:id="@+id/tvName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:text="欢迎使用智能管家"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:padding="15dp">
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tvDevices"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/iv_home_press"
-                            android:layout_centerInParent="true"
-                            android:text="我的设备"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1">
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:background="@color/black1"
-
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tvShareDevices"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:padding="2dp"
-                            android:text="设备共享"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1">
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:background="@color/black1" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tvDevicesLog"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:padding="2dp"
-                            android:text="设备日志"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-
-            </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="马云，下午好！"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="25sp"
+                    android:paddingStart="18dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <com.lqr.optionitemview.OptionItemView
                 android:id="@+id/OVUserInf"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/shape_bg_click"
-                app:left_src="@mipmap/ic_location"
+
                 app:left_text="个人资料"
                 app:left_text_color="@color/black1"
                 app:right_src="@mipmap/ic_next"
@@ -173,7 +50,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/shape_bg_click"
-                app:left_src="@mipmap/ic_location"
                 app:right_src="@mipmap/ic_next"
                 app:left_text="天气预报"
                 app:left_text_color="@color/black1" />
@@ -183,7 +59,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/shape_bg_click"
-                app:left_src="@mipmap/ic_location"
                 app:left_text="驾考题库"
                 app:left_text_color="@color/black1"
                 app:right_src="@mipmap/ic_next" />
@@ -193,7 +68,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/shape_bg_click"
-                app:left_src="@mipmap/ic_location"
                 app:left_text="每日一笑"
                 app:left_text_color="@color/black1"
                 app:right_src="@mipmap/ic_next" />
@@ -202,7 +76,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/shape_bg_click"
-                app:left_src="@mipmap/ic_location"
                 app:left_text="二维码扫描"
                 app:left_text_color="@color/black1"
                 app:right_src="@mipmap/ic_next" />
@@ -211,7 +84,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/shape_bg_click"
-                app:left_src="@mipmap/ic_location"
                 app:left_text="快递查询"
                 app:left_text_color="@color/black1"
                 app:right_src="@mipmap/ic_next" />
@@ -222,7 +94,6 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/shape_bg_click"
-                app:left_src="@mipmap/ic_location"
                 app:left_text="关于软件"
                 app:left_text_color="@color/black1"
                 app:right_src="@mipmap/ic_next" />
