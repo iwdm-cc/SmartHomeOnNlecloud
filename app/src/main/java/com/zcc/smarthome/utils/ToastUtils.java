@@ -10,15 +10,10 @@ import android.widget.Toast;
 
 import com.zcc.smarthome.R;
 
-/**
- * @author xuhong 2017/6/21
- */
-
 public class ToastUtils {
 
     /**
      * 带有图片的Toast
-     *
      * @param mContext 上下文
      * @param picID    左边图标的id
      * @param title    标题
@@ -44,7 +39,6 @@ public class ToastUtils {
             toast.show();
 
         } catch (Exception e) {
-            //Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'android.content.res.Resources android.content.Context.getResources()' on a null object reference
             e.printStackTrace();
         }
     }

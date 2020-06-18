@@ -5,7 +5,6 @@
     android:orientation="vertical">
 
     <com.zcc.smarthome.view.PullScrollView
-        android:id="@+id/pullView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"

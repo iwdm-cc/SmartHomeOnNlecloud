@@ -3,7 +3,6 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
 
     <!--标准字体-->
-    <dimen name="standard_textsize">12sp</dimen>
 
 
     <dimen name="rippleRadius">50dp</dimen>
