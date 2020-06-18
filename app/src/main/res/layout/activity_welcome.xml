@@ -45,6 +45,5 @@
         android:gravity="center"
         android:text="即刻开启我的智能家居生活"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="20sp" />
 </RelativeLayout>

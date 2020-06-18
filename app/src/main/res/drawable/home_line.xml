@@ -4,7 +4,7 @@
     <!-- rectangle表示为矩形 -->
 
     <!-- 填充的颜色 -->
-    <solid android:color="@color/white" />
+    <solid android:color="@color/colorPrimary" />
 
     <!-- 边框的颜色和粗细 -->
     <!--<stroke-->
@@ -18,5 +18,9 @@
         android:radius="5dp"
         android:topLeftRadius="0dp"
         android:topRightRadius="0dp" />
+    <gradient
+        android:angle="90"
+        android:endColor="@color/colorPrimary"
+        android:startColor="#47b5fa" />
 
 </shape>

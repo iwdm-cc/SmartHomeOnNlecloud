@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.zcc.smarthome.R;
 
@@ -55,7 +56,10 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
 
         if (!jsonObject.getString("Groups").equals("2")) {
             holder.allLaunch.setVisibility(View.INVISIBLE);
+        } else {
+            holder.allLaunch.setVisibility(View.VISIBLE);
         }
+
 
         holder.tvName.setText(String.format("%s", jsonObject.getString("Name")));
         holder.vole.setText(String.format("%s %s", jsonObject.getString("Value"), jsonObject.getString("Unit")));
@@ -64,7 +68,14 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
                 itemOnClickListener.onClick(position);
             }
         });
-
+        holder.allLaunch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (launchOnClickListener != null) {
+                    launchOnClickListener.onClick(position);
+                }
+            }
+        });
         holder.allListModeLaunch.setOnClickListener(v -> {
             RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
             rotateAnimation.setDuration(2000);
@@ -106,6 +117,10 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
 
     public void setOnItemClickListener(mRecyclerViewAdapter.OnItemClickListener itemOnClickListener) {
         this.itemOnClickListener = itemOnClickListener;
+    }
+
+    public JSONArray getData() {
+        return this.jsonArray;
     }
 
 

@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
     useLibrary 'org.apache.http.legacy'
-    defaultConfig   {
+    defaultConfig {
         applicationId "com.zcc.smarthome"
         minSdkVersion 19
         targetSdkVersion 28
@@ -73,6 +73,13 @@ dependencies {
 
     //Qmui
     implementation 'com.qmuiteam:qmui:1.4.0'
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.0"
+// alternatively, just ViewModel
+    implementation "android.arch.lifecycle:viewmodel:1.1.0"
+// alternatively, just LiveData
+    implementation "android.arch.lifecycle:livedata:1.1.0"
 
     //网络请求框架
     implementation 'com.squareup.okhttp3:okhttp:4.7.2'

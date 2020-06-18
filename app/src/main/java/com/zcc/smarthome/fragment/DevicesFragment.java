@@ -1,14 +1,17 @@
 package com.zcc.smarthome.fragment;
 
 import android.annotation.SuppressLint;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,7 +45,7 @@ import okhttp3.Response;
 
 public class DevicesFragment extends BaseFragment {
 
-
+    private HomeViewModel mViewModel;
     private Toolbar toolbarl;
     private RecyclerView recyclerView;
     private DividerItemDecoration dividerItemDecoration;
@@ -51,7 +54,7 @@ public class DevicesFragment extends BaseFragment {
     private ClassicsHeader mClassicsHeader;
     private Drawable mDrawableProgress;
     JSONArray jsonArray;
-    private static boolean isFirstEnter = true;
+
 
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
@@ -87,10 +90,11 @@ public class DevicesFragment extends BaseFragment {
                 if (response.isSuccessful()) {
                     JSONObject jsonObject = JSONObject.parseObject(response.body().string());
                     jsonArray = jsonObject.getJSONArray("ResultObj");
+
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            datazc();
+                            mViewModel.getJsonArrayMutableLiveData().setValue(jsonArray);
                         }
                     });
                 }
@@ -102,6 +106,7 @@ public class DevicesFragment extends BaseFragment {
 
     @Override
     protected int setLayoutId() {
+        mViewModel = ViewModelProviders.of(requireActivity()).get(HomeViewModel.class);
         return R.layout.fragment_devices;
     }
 
@@ -155,21 +160,46 @@ public class DevicesFragment extends BaseFragment {
     @Override
     protected void initData() {
 
+        final Observer<JSONArray> jsonArrayObserver = new Observer<JSONArray>() {
+            @Override
+            public void onChanged(@Nullable JSONArray objects) {
+                datazc(objects);
+            }
+        };
+
+        mViewModel.getJsonArrayMutableLiveData().observe(getViewLifecycleOwner(), jsonArrayObserver);
+
     }
 
-    private void datazc() {
+    private void datazc(JSONArray objects) {
         dividerItemDecoration = new DividerItemDecoration(
                 getActivity(), DividerItemDecoration.VERTICAL);
-
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        mRecyclerViewAdapter mScenceAdapter = new mRecyclerViewAdapter(jsonArray, getActivity());
-        recyclerView.setLayoutManager(layoutManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerViewAdapter mScenceAdapter = new mRecyclerViewAdapter(objects, getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setAdapter(mScenceAdapter);
         mScenceAdapter.setOnItemClickListener(new mRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onClick(int position) {
                 showDevicesInfDialog();
+            }
+        });
+        mScenceAdapter.setOnLaunchClickListener(new mRecyclerViewAdapter.OnLaunchClickListener() {
+            @Override
+            public void onClick(int position) {
+                new OkHttpUtils().cmds(Constant.DeviceID, objects.getJSONObject(position).getString("ApiTag"), "1", new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+
+                    }
+                });
             }
         });
     }

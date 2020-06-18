@@ -70,11 +70,10 @@ public class OkHttpUtils {
      * 发送命令/控制设备
      */
 
-    public void cmds(String deviceId, String apiTag, Callback callback) {
+    public void cmds(String deviceId, String apiTag, String cmd, Callback callback) {
 
         RequestBody requestBodyPost = new FormBody.Builder()
-                .add("deviceId", deviceId)//要获取的新闻频道
-                .add("apiTag", apiTag)//appkey
+                .add("", cmd)//要获取的新闻频道
                 .build();
 
         Request requestPost = new Request.Builder()
