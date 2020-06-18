@@ -2,36 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/allListMode"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/shape_bg_scence_click">
+    android:padding="6dp"
+    android:background="@drawable/item_list_mode"
+    android:layout_height="wrap_content">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="14dp"
-        card_view:cardBackgroundColor="@color/colorAccent"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="5dp"
-        card_view:contentPadding="8dp">
-        <!--子布局控件-->
+    <!--子布局控件-->
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@mipmap/noti_scene_back_home" />
+            android:src="@drawable/clund" />
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:maxLines="1"
             android:text="回家模式"
+            android:textSize="35sp" />
 
-            android:textColor="@color/white"
-            android:textSize="25sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:maxLines="1"
+        android:textColor="#5F000000"
+            android:text="回家模式"
+        android:textSize="20sp" />
 
         <LinearLayout
             android:id="@+id/allLaunch"
@@ -58,5 +56,4 @@
                 android:textSize="12sp" />
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
 </LinearLayout>

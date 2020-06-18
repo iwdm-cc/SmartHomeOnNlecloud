@@ -2,61 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/allListMode"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:padding="6dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/item_list_mode"
     android:layout_height="wrap_content">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/item_card"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="14dp"
-        card_view:cardBackgroundColor="@color/colorAccent"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="5dp"
-        card_view:contentPadding="8dp">
-        <!--子布局控件-->
+    <!--子布局控件-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/clund" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="回家模式"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/vole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColor="#5F000000"
+        android:text="回家模式"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/allLaunch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:background="@drawable/selector_button_bg"
+        android:padding="5dp">
+
         <ImageView
+            android:id="@+id/ivLaunch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@mipmap/noti_scene_back_home" />
+            android:paddingEnd="5dp"
+            android:src="@drawable/ic_launch" />
+
 
         <TextView
-            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="启动"
             android:layout_gravity="center"
-            android:maxLines="1"
-            android:text="回家模式"
-
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="12sp" />
 
-        <LinearLayout
-            android:id="@+id/allLaunch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:background="@drawable/selector_button_bg"
-            android:padding="5dp">
-
-            <ImageView
-                android:id="@+id/ivLaunch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="5dp"
-                android:src="@drawable/ic_launch" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="启动"
-                android:layout_gravity="center"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </LinearLayout>
 </LinearLayout>

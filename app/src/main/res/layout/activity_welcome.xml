@@ -20,5 +20,31 @@
         android:textColor="@color/white"
         android:textSize="40sp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="274dp"
+        android:visibility="gone"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:text="Welcome home"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="41dp"
+        android:gravity="center"
+        android:text="即刻开启我的智能家居生活"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </RelativeLayout>

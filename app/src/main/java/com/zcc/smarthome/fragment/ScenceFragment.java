@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
@@ -78,22 +79,6 @@ public class ScenceFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         toolbarl = view.findViewById(R.id.toolbar);
-//        toolbarl.inflateMenu(R.menu.menu_scence_add);
-//        toolbarl.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                switch (item.getItemId()) {
-//                    case R.id.menu_id_list_mode:
-//                        rV_Mode(false);
-//                        break;
-//                    case R.id.menu_id_grid_mode:
-//                        rV_Mode(true);
-//                        mScenceAdapter.notifyDataSetChanged();
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
 
 
         OkHttpUtils.getInstance().getStrategys(Constant.ProjectID, Constant.DeviceID, new Callback() {
@@ -113,45 +98,45 @@ public class ScenceFragment extends BaseFragment {
         });
 
         rVMyScences = view.findViewById(R.id.rVMyScences);
-
         dividerItemDecoration = new DividerItemDecoration(
                 getActivity(), DividerItemDecoration.VERTICAL);
 
     }
 
     private void rV_Mode() {
-            rVMyScences.removeItemDecoration(dividerItemDecoration);
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rVMyScences.removeItemDecoration(dividerItemDecoration);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mScenceAdapter = new mRecyclerViewMyScenceAdapter(beanList, getActivity());
-            mScenceAdapter.setOnLaunchClickListener(new mRecyclerViewMyScenceAdapter.OnLaunchClickListener() {
-                @Override
-                public void onClick(int position) {
-                    String id = beanList.get(position).getStrategyId();
-                    OkHttpUtils.getInstance().setEnable(id, Math.random() < 0.5 ? "true" : "false", new Callback() {
-                        @Override
-                        public void onFailure(Call call, IOException e) {
-                            handler.obtainMessage(TOASTED, "请检查网络！").sendToTarget();
-                        }
+        mScenceAdapter.setOnLaunchClickListener(new mRecyclerViewMyScenceAdapter.OnLaunchClickListener() {
+            @Override
+            public void onClick(int position) {
+                String id = beanList.get(position).getStrategyId();
+                OkHttpUtils.getInstance().setEnable(id, Math.random() < 0.5 ? "true" : "false", new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        handler.obtainMessage(TOASTED, "请检查网络！").sendToTarget();
+                    }
 
-                        @Override
-                        public void onResponse(Call call, Response response) throws IOException {
-                            handler.obtainMessage(TOASTED, "开启成功").sendToTarget();
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        handler.obtainMessage(TOASTED, "开启成功").sendToTarget();
 
-                        }
-                    });
-                }
-            });
+                    }
+                });
+            }
+        });
         mScenceAdapter.setOnItemClickListener(new mRecyclerViewMyScenceAdapter.OnItemClickListener() {
             @Override
             public void onClick(int position) {
                 handler.obtainMessage(TOASTED, "开启成功" + position).sendToTarget();
             }
         });
-            rVMyScences.setLayoutManager(linearLayoutManager);
-            rVMyScences.addItemDecoration(dividerItemDecoration);
-            rVMyScences.setAdapter(mScenceAdapter);
-        }
+        rVMyScences.setLayoutManager(layoutManager);
+        rVMyScences.addItemDecoration(dividerItemDecoration);
+        rVMyScences.setAdapter(mScenceAdapter);
+    }
 
 
 }
