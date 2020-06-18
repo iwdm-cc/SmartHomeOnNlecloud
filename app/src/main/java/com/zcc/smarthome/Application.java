@@ -10,8 +10,14 @@ import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreater;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.zcc.smarthome.utils.OkHttpUtils;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 
 public class Application extends android.app.Application {

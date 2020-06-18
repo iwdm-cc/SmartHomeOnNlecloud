@@ -2,13 +2,13 @@ package com.zcc.smarthome.fragment;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.zcc.smarthome.R;
+import com.zcc.smarthome.activity.WelcomeActivity;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
 
@@ -16,8 +16,8 @@ import cn.bingoogolapple.bgabanner.BGABanner;
 public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
     private BGABanner mBanner;
+    private TextView textView;
 
-    private List<String> list = new ArrayList<>();
 
     @Override
     protected int setLayoutId() {
@@ -27,10 +27,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     @Override
     protected void initView(View view) {
         mBanner = view.findViewById(R.id.banner_main_depth);
+//        textView = view.findViewById(R.id.text);
     }
 
     @Override
     protected void initData() {
+        String we = WelcomeActivity.temp;
+//        JSONObject jsonObject = JSONObject.parseObject(we);
+//        String weather = jsonObject.getJSONObject("result").getJSONObject("result").getString("weather");
+//        textView.setText(weather);
         mBanner.setAdapter(new BGABanner.Adapter<ImageView, String>() {
             @Override
             public void fillBannerItem(BGABanner banner, ImageView itemView, String model, int position) {

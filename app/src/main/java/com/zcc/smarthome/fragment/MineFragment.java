@@ -19,7 +19,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
 
     private com.lqr.optionitemview.OptionItemView mOVUserInf;
-    private com.lqr.optionitemview.OptionItemView mOVCarText;
+
     private com.lqr.optionitemview.OptionItemView mOVDayHappy;
     private com.lqr.optionitemview.OptionItemView mOVAbout;
     private com.lqr.optionitemview.OptionItemView OVVegetable;
@@ -38,8 +38,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
         mOVUserInf = view.findViewById(R.id.OVUserInf);
         mOVUserInf.setOnClickListener(this);
-        mOVCarText = view.findViewById(R.id.OVCarText);
-        mOVCarText.setOnClickListener(this);
+
         mOVDayHappy = view.findViewById(R.id.OVDayHappy);
         mOVDayHappy.setOnClickListener(this);
         mOVAbout = view.findViewById(R.id.OVAbout);
@@ -57,8 +56,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             case R.id.OVUserInf:
                 startActivity(new Intent(getActivity(), AlterUserInfActivity.class));
                 break;
-            case R.id.OVCarText:
-                break;
+
             case R.id.OVDayHappy:
                 break;
             //天气预报

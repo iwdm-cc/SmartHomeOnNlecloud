@@ -134,4 +134,21 @@ public class OkHttpUtils {
         client.newCall(requestPost).enqueue(callback);
     }
 
+    /**
+     * 获取天气信息
+     */
+
+    public void getWeatherinfo(Callback callback) {
+
+        RequestBody requestBody = new FormBody.Builder()
+                .add("city", "江津")
+                .add("appkey", "d1018de47316f3f32c703aab248c7938")
+                .build();
+        Request requestPost = new Request.Builder()
+                .url("https://way.jd.com/jisuapi/weather")
+                .post(requestBody)
+                .build();
+        client.newCall(requestPost).enqueue(callback);
+    }
+
 }

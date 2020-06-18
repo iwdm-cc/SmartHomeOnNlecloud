@@ -53,14 +53,6 @@
                 app:left_text="天气预报"
                 app:left_text_color="@color/black1" />
 
-            <com.lqr.optionitemview.OptionItemView
-                android:id="@+id/OVCarText"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/shape_bg_click"
-                app:left_text="驾考题库"
-                app:left_text_color="@color/black1"
-                app:right_src="@mipmap/ic_next" />
 
             <com.lqr.optionitemview.OptionItemView
                 android:id="@+id/OVDayHappy"
@@ -79,13 +71,6 @@
                 app:left_text_color="@color/black1"
                 app:right_src="@mipmap/ic_next" />
 
-            <com.lqr.optionitemview.OptionItemView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/shape_bg_click"
-                app:left_text="快递查询"
-                app:left_text_color="@color/black1"
-                app:right_src="@mipmap/ic_next" />
 
             <com.lqr.optionitemview.OptionItemView
                 android:id="@+id/OVAbout"
