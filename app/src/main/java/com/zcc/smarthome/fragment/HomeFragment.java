@@ -90,7 +90,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void ItemLongClickListener(View view, int postion) {
                 //长按删除
-                adapter.notifyItemRemoved(postion);
+//                adapter.notifyItemRemoved(postion);
             }
         });
     }
