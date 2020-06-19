@@ -51,15 +51,9 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
         JSONObject jsonObject = jsonArray.getJSONObject(position);
         boolean flog = position % 2 == 0;
 
+        holder.title.setText(String.format("%s", jsonObject.getString("Name")));
+        holder.openorclose.setText(jsonObject.getString("Value").equals("false") ? "已关闭" : "已打开");
         holder.tvName.setTextColor(flog ? Color.BLACK : Color.BLUE);
-
-
-        if (!jsonObject.getString("Groups").equals("2")) {
-            holder.allLaunch.setVisibility(View.INVISIBLE);
-        } else {
-            holder.allLaunch.setVisibility(View.VISIBLE);
-        }
-
 
         holder.tvName.setText(String.format("%s", jsonObject.getString("Name")));
         holder.vole.setText(String.format("%s %s", jsonObject.getString("Value"), jsonObject.getString("Unit")));
@@ -71,18 +65,13 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
         holder.allLaunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+                rotateAnimation.setDuration(2000);
+                rotateAnimation.setFillAfter(true);
+                holder.ivListModeLaunch.startAnimation(rotateAnimation);
                 if (launchOnClickListener != null) {
                     launchOnClickListener.onClick(position);
                 }
-            }
-        });
-        holder.allListModeLaunch.setOnClickListener(v -> {
-            RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
-            rotateAnimation.setDuration(2000);
-            rotateAnimation.setFillAfter(true);
-            holder.ivListModeLaunch.startAnimation(rotateAnimation);
-            if (launchOnClickListener != null) {
-                launchOnClickListener.onClick(position);
             }
         });
     }
@@ -96,21 +85,23 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        LinearLayout allListModeLaunch;
         TextView tvName;
         LinearLayout allListMode;
         LinearLayout allLaunch;
         ImageView ivListModeLaunch;
         TextView vole;
+        TextView title; //标题
+        TextView openorclose; //开关与否
 
         ViewHolder(View view) {
             super(view);
-            allListModeLaunch = view.findViewById(R.id.allLaunch);
             ivListModeLaunch = view.findViewById(R.id.ivLaunch);
             tvName = view.findViewById(R.id.tvName);
             allListMode = view.findViewById(R.id.allListMode);
             allLaunch = view.findViewById(R.id.allLaunch);
             vole = view.findViewById(R.id.vole);
+            title = view.findViewById(R.id.title);
+            openorclose = view.findViewById(R.id.openorclose);
         }
     }
 

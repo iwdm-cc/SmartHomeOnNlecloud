@@ -8,7 +8,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,7 +44,7 @@ import okhttp3.Response;
 
 public class DevicesFragment extends BaseFragment {
 
-    private HomeViewModel mViewModel;
+    private ViewMode mViewModel;
     private Toolbar toolbarl;
     private RecyclerView recyclerView;
     private DividerItemDecoration dividerItemDecoration;
@@ -90,12 +89,20 @@ public class DevicesFragment extends BaseFragment {
                 if (response.isSuccessful()) {
                     JSONObject jsonObject = JSONObject.parseObject(response.body().string());
                     jsonArray = jsonObject.getJSONArray("ResultObj");
-
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            mViewModel.getJsonArrayMutableLiveData().setValue(jsonArray);
+                    JSONArray mjsonArray = new JSONArray();
+                    JSONArray mjsonArray1 = new JSONArray();
+                    for (Object aJsonArray : jsonArray) {
+                        JSONObject jsonObject1 = (JSONObject) aJsonArray;
+                        if (jsonObject1.getString("Groups").equals("2")) {
+                            mjsonArray.add(jsonObject1);
+                        } else {
+                            mjsonArray1.add(jsonObject1);
                         }
+                    }
+
+                    mHandler.post(() -> {
+                        mViewModel.getJsonArrayMutableLiveData().setValue(mjsonArray);
+                        mViewModel.gethomejsonArrayMutableLiveData().setValue(mjsonArray1);
                     });
                 }
             }
@@ -106,7 +113,7 @@ public class DevicesFragment extends BaseFragment {
 
     @Override
     protected int setLayoutId() {
-        mViewModel = ViewModelProviders.of(requireActivity()).get(HomeViewModel.class);
+        mViewModel = ViewModelProviders.of(requireActivity()).get(ViewMode.class);
         return R.layout.fragment_devices;
     }
 
@@ -160,14 +167,10 @@ public class DevicesFragment extends BaseFragment {
     @Override
     protected void initData() {
 
-        final Observer<JSONArray> jsonArrayObserver = new Observer<JSONArray>() {
-            @Override
-            public void onChanged(@Nullable JSONArray objects) {
-                datazc(objects);
-            }
-        };
+        final Observer<JSONArray> jsonArrayObserver = this::datazc;
 
         mViewModel.getJsonArrayMutableLiveData().observe(getViewLifecycleOwner(), jsonArrayObserver);
+
 
     }
 
@@ -189,7 +192,8 @@ public class DevicesFragment extends BaseFragment {
         mScenceAdapter.setOnLaunchClickListener(new mRecyclerViewAdapter.OnLaunchClickListener() {
             @Override
             public void onClick(int position) {
-                new OkHttpUtils().cmds(Constant.DeviceID, objects.getJSONObject(position).getString("ApiTag"), "1", new Callback() {
+                JSONObject jsonObject = objects.getJSONObject(position);
+                new OkHttpUtils().cmds(Constant.DeviceID, jsonObject.getString("ApiTag"), jsonObject.getString("Value").equals("false") ? "1" : "0", new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
 
