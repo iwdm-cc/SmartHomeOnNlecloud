@@ -40,12 +40,6 @@
     </style>
 
 
-    <style name="dialog_style" parent="android:Animation">
-        <item name="@android:windowEnterAnimation">@anim/dialog_enter</item>
-        <item name="@android:windowExitAnimation">@anim/dialog_exit</item>
-    </style>
-
-
     <style name="Widget_GifView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

@@ -12,6 +12,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -29,7 +30,6 @@ import com.zcc.smarthome.R;
 import com.zcc.smarthome.adapter.mRecyclerViewAdapter;
 import com.zcc.smarthome.constant.Constant;
 import com.zcc.smarthome.utils.OkHttpUtils;
-import com.zcc.smarthome.utils.ToastUtils;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -126,7 +126,7 @@ public class DevicesFragment extends BaseFragment {
         mRefreshLayout.setOnRefreshLoadmoreListener(new OnRefreshLoadmoreListener() {
             @Override
             public void onLoadmore(RefreshLayout refreshlayout) {
-                ToastUtils.showToast(getContext(), "上来刷新");
+                Log.i("once", "xxx");
             }
 
             @Override
@@ -201,7 +201,7 @@ public class DevicesFragment extends BaseFragment {
 
                     @Override
                     public void onResponse(Call call, Response response) {
-
+                        mRefreshLayout.autoRefresh();
                     }
                 });
             }

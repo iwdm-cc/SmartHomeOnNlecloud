@@ -40,7 +40,7 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.layout_item_list_dev, parent, false);
+        View view = inflater.inflate(R.layout.item_dev_list, parent, false);
 
         return new mRecyclerViewAdapter.ViewHolder(view);
 

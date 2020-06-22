@@ -130,7 +130,7 @@ public class ScenceFragment extends BaseFragment {
         mScenceAdapter.setOnItemClickListener(new mRecyclerViewMyScenceAdapter.OnItemClickListener() {
             @Override
             public void onClick(int position) {
-                handler.obtainMessage(TOASTED, "开启成功" + position).sendToTarget();
+//                handler.obtainMessage(TOASTED, "开启成功" + position).sendToTarget();
             }
         });
         rVMyScences.setLayoutManager(layoutManager);

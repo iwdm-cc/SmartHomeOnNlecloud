@@ -38,7 +38,7 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.layout_item_list_mode_scence, parent, false);
+        View view = inflater.inflate(R.layout.item_mode_scence, parent, false);
 
         return new mRecyclerViewMyScenceAdapter.ViewHolder(view);
 

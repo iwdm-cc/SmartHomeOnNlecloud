@@ -26,11 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.FileChannel;
 
-/**
- * Tools for handler picture
- *
- * @author Ryan.Tang
- */
+
 public final class ImageTools {
 
     /**
