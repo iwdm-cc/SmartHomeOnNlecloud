@@ -1,91 +1,120 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.zcc.smarthome.view.PullScrollView
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:scrollbars="none">
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorAccent">
 
-        <LinearLayout
-            android:id="@+id/all"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="修改个人资料"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--用户名-->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_bg"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_toStartOf="@+id/ivname_goneAll">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:text="马云，下午好！"
-                    android:layout_margin="8dp"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="25sp"
-                    android:paddingStart="18dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableStart="@mipmap/ic_perm_identity_black_24dp"
+                    android:hint="用户名"
+                    android:textColor="@color/black0"
+                    android:textColorHint="@color/black0"
+                    android:textSize="16sp" />
 
-            <com.lqr.optionitemview.OptionItemView
-                android:id="@+id/OVUserInf"
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/ivname_goneAll"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/ic_cancel_black_24dp" />
+
+        </RelativeLayout>
+
+        <!--邮箱-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_bg"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/shape_bg_click"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_toStartOf="@+id/cb_eye_gone3">
 
-                app:left_text="个人资料"
-                app:left_text_color="@color/black1"
-                app:right_src="@mipmap/ic_next"
-                app:right_text="修改、查看"
-                app:right_text_color="@color/black1"
-                app:right_text_size="12sp" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableStart="@drawable/shape_email"
+                    android:hint="邮箱"
+                    android:textColorHint="@color/black0"
+                    android:textSize="16sp" />
 
-            <com.lqr.optionitemview.OptionItemView
-                android:layout_marginTop="10dp"
-                android:id="@+id/OVWeather"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/shape_bg_click"
-                app:right_src="@mipmap/ic_next"
-                app:left_text="天气预报"
-                app:left_text_color="@color/black1" />
+            </android.support.design.widget.TextInputLayout>
 
 
-            <com.lqr.optionitemview.OptionItemView
-                android:id="@+id/OVDayHappy"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/shape_bg_click"
-                app:left_text="每日一笑"
-                app:left_text_color="@color/black1"
-                app:right_src="@mipmap/ic_next" />
-
-            <com.lqr.optionitemview.OptionItemView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/shape_bg_click"
-                app:left_text="二维码扫描"
-                app:left_text_color="@color/black1"
-                app:right_src="@mipmap/ic_next" />
+            <CheckBox
+                android:id="@+id/cb_eye_gone3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/selector_cb_eye_"
+                android:button="@null"
+                android:visibility="invisible" />
 
 
-            <com.lqr.optionitemview.OptionItemView
-                android:id="@+id/OVAbout"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/shape_bg_click"
-                app:left_text="关于软件"
-                app:left_text_color="@color/black1"
-                app:right_src="@mipmap/ic_next" />
+        </RelativeLayout>
 
-        </LinearLayout>
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+            android:layout_width="230dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:text="修改" />
 
 
-    </com.zcc.smarthome.view.PullScrollView>
+    </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

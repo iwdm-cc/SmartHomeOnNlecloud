@@ -1,20 +1,16 @@
 package com.zcc.smarthome.fragment;
 
-import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.zcc.smarthome.R;
-import com.zcc.smarthome.activity.AlterUserInfActivity;
 
 
-public class MineFragment extends BaseFragment implements View.OnClickListener {
+public class MineFragment extends BaseFragment {
 
-
-    private com.lqr.optionitemview.OptionItemView mOVUserInf;
-
-    private com.lqr.optionitemview.OptionItemView mOVDayHappy;
-    private com.lqr.optionitemview.OptionItemView mOVAbout;
-    private com.lqr.optionitemview.OptionItemView OVVegetable;
+    private Toolbar toolbarl;
 
     @Override
     protected int setLayoutId() {
@@ -22,38 +18,15 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     }
 
     @Override
-    protected void initView(View view) {
-
-
-        mOVUserInf = view.findViewById(R.id.OVUserInf);
-        mOVUserInf.setOnClickListener(this);
-
-        mOVDayHappy = view.findViewById(R.id.OVDayHappy);
-        mOVDayHappy.setOnClickListener(this);
-        mOVAbout = view.findViewById(R.id.OVAbout);
-        OVVegetable = view.findViewById(R.id.OVWeather);
-        mOVAbout.setOnClickListener(this);
-        OVVegetable.setOnClickListener(this);
-
-
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ImmersionBar.setTitleBar(getActivity(), toolbarl);
     }
 
-
     @Override
-    public void onClick(final View v) {
-        switch (v.getId()) {
-            case R.id.OVUserInf:
-                startActivity(new Intent(getActivity(), AlterUserInfActivity.class));
-                break;
+    protected void initView(View view) {
+        toolbarl = view.findViewById(R.id.toolbar);
 
-            case R.id.OVDayHappy:
-                break;
-            //天气预报
-            case R.id.OVWeather:
-                break;
-            case R.id.OVAbout:
-                break;
-        }
     }
 
 

@@ -19,7 +19,7 @@ public class AlterUserInfActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alter_user_inf);
+        setContentView(R.layout.fragment_mine);
         initView();
     }
 

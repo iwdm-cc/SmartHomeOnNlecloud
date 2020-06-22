@@ -14,6 +14,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.bumptech.glide.Glide;
 import com.zcc.smarthome.R;
+import com.zcc.smarthome.activity.WelcomeActivity;
 import com.zcc.smarthome.adapter.MyRecyclerAdapter;
 
 import java.util.Arrays;
@@ -24,7 +25,9 @@ import cn.bingoogolapple.bgabanner.BGABanner;
 public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private ViewMode mViewModel;
     private BGABanner mBanner;
-    private TextView textView;
+    private TextView textView8;
+    private TextView textView9;
+    private TextView textView14;
     private RecyclerView mRecyclerView;
 
     private MyRecyclerAdapter adapter;
@@ -38,7 +41,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     @Override
     protected void initView(View view) {
         mBanner = view.findViewById(R.id.banner_main_depth);
-        textView = view.findViewById(R.id.text);
+        textView8 = view.findViewById(R.id.textView8);
+        textView9 = view.findViewById(R.id.textView9);
+        textView14 = view.findViewById(R.id.textView14);
         mRecyclerView = view.findViewById(R.id.homere);
 
     }
@@ -48,15 +53,17 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         final Observer<JSONArray> jsonArrayObserver = objects -> {
             initrecy(objects);
             JSONObject jsonObject = new JSONObject(objects.getJSONObject(0));
-            textView.setText(String.format("%s %s", jsonObject.getString("Value"), jsonObject.getString("Unit")));
+//            textView.setText(String.format("%s %s", jsonObject.getString("Value"), jsonObject.getString("Unit")));
         };
 
         mViewModel.gethomejsonArrayMutableLiveData().observe(getViewLifecycleOwner(), jsonArrayObserver);
-
-//        String we = WelcomeActivity.temp;
-//        JSONObject jsonObject = JSONObject.parseObject(we);
-//        String weather = jsonObject.getJSONObject("result").getJSONObject("result").getString("weather");
-//        textView.setText(weather);
+        if (WelcomeActivity.jsonWeather != null) {
+            JSONObject jsonObject = WelcomeActivity.jsonWeather.getJSONObject("result").getJSONObject("result");
+            JSONArray jsonArray = WelcomeActivity.jsonWeather.getJSONObject("result").getJSONObject("result").getJSONArray("index");
+            textView8.setText(String.format("%s%s  -- °C", jsonObject.getString("weather"), jsonObject.getString("temp")));
+            textView9.setText(String.format("%s%s", jsonObject.getString("date"), jsonObject.getString("week")));
+            textView14.setText(String.format("%s", jsonArray.getJSONObject((int) (Math.random() * 10 % 7)).getString("detail")));
+        }
         mBanner.setAdapter(new BGABanner.Adapter<ImageView, String>() {
             @Override
             public void fillBannerItem(BGABanner banner, ImageView itemView, String model, int position) {

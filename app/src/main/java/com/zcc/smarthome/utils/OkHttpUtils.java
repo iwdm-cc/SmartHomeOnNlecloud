@@ -57,6 +57,9 @@ public class OkHttpUtils {
      */
 
     public void getMyNewsList(String projectid, Callback callback) {
+        if (WelcomeActivity.token == null) {
+            return;
+        }
 
         Request requestPost = new Request.Builder()
                 .addHeader("AccessToken", WelcomeActivity.token)

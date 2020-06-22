@@ -25,7 +25,8 @@ import okhttp3.Response;
 
 public class WelcomeActivity extends AppCompatActivity {
     public static String token = null;
-    public static String temp = "这是一  dd 题";
+    public static JSONObject jsonWeather = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +66,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    temp = response.body().string();
-
+                    jsonWeather = JSONObject.parseObject(response.body().string());
                 }
             }
         });
@@ -74,8 +74,6 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void initView() {
-
-        //动画设置
         TextView all = findViewById(R.id.all);
         ValueAnimator animator = ObjectAnimator.ofFloat(all, "translationY", 0.0f, 100.0f);
         animator.setDuration(2000);
