@@ -1,11 +1,4 @@
 <resources>
     <string name="app_name" translatable="false">智能管家</string>
-
-
-    <!-- Error Toast -->
-
-
     <string name="welconmetext">欢迎回家</string>
-
-
 </resources>

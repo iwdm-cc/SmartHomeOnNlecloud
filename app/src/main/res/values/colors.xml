@@ -3,17 +3,9 @@
     <color name="colorPrimary">#26AAFD</color>
     <color name="colorPrimaryDark">#26AAFD</color>
     <color name="colorAccent">#26AAFD</color>
-
-
     <color name="gray5">#EBEBEB</color>
-
     <color name="black0">#000000</color>
     <color name="white">#ffffff</color>
-
     <color name="yellow0">#FFC51B</color>
     <color name="gifview_background">#E8E8E8</color>
-
-
-
-
 </resources>
