@@ -26,10 +26,10 @@ public class ToastUtils {
             View view = inflater.inflate(R.layout.view_toast, null);
             Toast toast = new Toast(mContext);
 
-            TextView textView = (TextView) view.findViewById(R.id.tv_toast);
+            TextView textView = view.findViewById(R.id.tv_toast);
             textView.setText(title);
 
-            ImageView ivToast = (ImageView) view.findViewById(R.id.ivToast);
+            ImageView ivToast = view.findViewById(R.id.ivToast);
             ivToast.setBackground(mContext.getResources().getDrawable(picID));
 
             toast.setDuration(Toast.LENGTH_SHORT);

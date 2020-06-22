@@ -451,12 +451,8 @@ public class TakePictureManager {
     //判断SD卡是否挂载
 
     private static boolean isSDCardAvailable() {
-        if (Environment.MEDIA_MOUNTED.equals(Environment
-                .getExternalStorageState())) {
-            return true;
-        } else {
-            return false;
-        }
+        return Environment.MEDIA_MOUNTED.equals(Environment
+                .getExternalStorageState());
     }
 
     /**

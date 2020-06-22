@@ -9,16 +9,6 @@
     </style>
 
 
-    <style name="mAppThemeFullSceen" parent="QMUI.Compat.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-
     <style name="BannerDefaultStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">200dp</item>

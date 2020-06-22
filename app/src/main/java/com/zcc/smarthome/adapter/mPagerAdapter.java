@@ -1,7 +1,6 @@
 package com.zcc.smarthome.adapter;
 
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -34,13 +33,13 @@ public class mPagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        ((ViewPager) container).addView(mList.get(position));
+        container.addView(mList.get(position));
         return mList.get(position);
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        ((ViewPager) container).removeView(mList.get(position));
+        container.removeView(mList.get(position));
     }
 
 

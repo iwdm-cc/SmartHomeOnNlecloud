@@ -20,13 +20,6 @@ import android.widget.LinearLayout;
 
 import com.zcc.smarthome.R;
 
-/**
- * 项目名： SmartHome-master
- * 包名名： com.xuhong.smarthome.view
- * 创建者: xuhong  GitHub-> https://github.com/xuhongv
- * 创建时间: 2017/11/14.
- * 描述：TOMO
- */
 
 public class ShadowContainer extends LinearLayout {
 

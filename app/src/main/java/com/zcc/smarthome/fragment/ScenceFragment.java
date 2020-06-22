@@ -120,7 +120,7 @@ public class ScenceFragment extends BaseFragment {
                     }
 
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(Call call, Response response) {
                         handler.obtainMessage(TOASTED, "开启成功").sendToTarget();
 
                     }

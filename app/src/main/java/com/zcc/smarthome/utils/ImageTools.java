@@ -67,10 +67,8 @@ public final class ImageTools {
      *
      * @param inputStream
      * @return
-     * @throws Exception
      */
-    public static Bitmap inputStreamToBitmap(InputStream inputStream)
-            throws Exception {
+    public static Bitmap inputStreamToBitmap(InputStream inputStream) {
         return BitmapFactory.decodeStream(inputStream);
     }
 
@@ -128,7 +126,6 @@ public final class ImageTools {
         BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
         Bitmap bitmap = bitmapDrawable.getBitmap();
         byte[] bytes = bitmapToBytes(bitmap);
-        ;
         return bytes;
     }
 

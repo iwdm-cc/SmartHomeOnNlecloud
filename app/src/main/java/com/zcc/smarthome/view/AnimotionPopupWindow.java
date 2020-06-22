@@ -99,14 +99,14 @@ public class AnimotionPopupWindow extends PopupWindow {
         mLac.setInterpolator(new DecelerateInterpolator());
 
         /* 初始化控件*/
-        Button button = (Button) view.findViewById(R.id.btCancle);
+        Button button = view.findViewById(R.id.btCancle);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-        listView = (ListView) view.findViewById(R.id.lv);
+        listView = view.findViewById(R.id.lv);
         Adapter adapter = new Adapter();
         listView.setAdapter(adapter);
         listView.setLayoutAnimation(mLac);
@@ -170,7 +170,7 @@ public class AnimotionPopupWindow extends PopupWindow {
             if (view == null) {
                 viewHoler = new ViewHoler();
                 view = layoutInflater.inflate(R.layout.item_listview, null);
-                viewHoler.textView = (TextView) view.findViewById(R.id.textView);
+                viewHoler.textView = view.findViewById(R.id.textView);
                 view.setTag(viewHoler);
 
             } else {
