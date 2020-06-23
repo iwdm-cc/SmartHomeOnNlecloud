@@ -1,6 +1,7 @@
 package com.zcc.smarthome.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,9 @@ import com.zcc.smarthome.bean.ScencesListBean;
 
 import java.util.List;
 
+/**
+ * 场景界面，适配器
+ */
 
 public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecyclerViewMyScenceAdapter.ViewHolder> {
 
@@ -35,8 +39,9 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = inflater.inflate(R.layout.item_mode_scence, parent, false);
 
@@ -45,28 +50,22 @@ public class mRecyclerViewMyScenceAdapter extends RecyclerView.Adapter<mRecycler
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
 //        holder.tvName.setText(beanList.get(position).getTitle());
-        holder.allListMode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (itemOnClickListener != null) {
-                    itemOnClickListener.onClick(position);
-                }
+        holder.allListMode.setOnClickListener(v -> {
+            if (itemOnClickListener != null) {
+                itemOnClickListener.onClick(position);
             }
         });
 
-        holder.allListModeLaunch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
-                rotateAnimation.setDuration(2000);
-                rotateAnimation.setFillAfter(true);
-                holder.ivListModeLaunch.startAnimation(rotateAnimation);
-                if (launchOnClickListener != null) {
-                    launchOnClickListener.onClick(position);
-                }
+        holder.allListModeLaunch.setOnClickListener(v -> {
+            RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+            rotateAnimation.setDuration(2000);
+            rotateAnimation.setFillAfter(true);
+            holder.ivListModeLaunch.startAnimation(rotateAnimation);
+            if (launchOnClickListener != null) {
+                launchOnClickListener.onClick(position);
             }
         });
     }

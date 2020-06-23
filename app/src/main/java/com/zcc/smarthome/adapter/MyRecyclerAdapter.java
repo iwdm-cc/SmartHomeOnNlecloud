@@ -16,6 +16,10 @@ import com.zcc.smarthome.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 主界面，流布局适配器
+ */
+
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
     private JSONArray lists;
     private Context context;
@@ -30,7 +34,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         }
 
     }
-
 
 
     public interface OnItemClickListener {
@@ -59,20 +62,14 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         holder.mTv.setText(jsonObject.getString("Name"));//为控件绑定数据
         holder.item_home_text1.setText(String.format("%s %s", jsonObject.getString("Value"), jsonObject.getString("Unit")));//为控件绑定数据
         if (mListener != null) {//如果设置了监听那么它就不为空，然后回调相应的方法
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int pos = holder.getLayoutPosition();//得到当前点击item的位置pos
-                    mListener.ItemClickListener(holder.itemView, pos);//把事件交给我们实现的接口那里处理
-                }
+            holder.itemView.setOnClickListener(v -> {
+                int pos = holder.getLayoutPosition();//得到当前点击item的位置pos
+                mListener.ItemClickListener(holder.itemView, pos);//把事件交给我们实现的接口那里处理
             });
-            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    int pos = holder.getLayoutPosition();//得到当前点击item的位置pos
-                    mListener.ItemLongClickListener(holder.itemView, pos);//把事件交给我们实现的接口那里处理
-                    return true;
-                }
+            holder.itemView.setOnLongClickListener(v -> {
+                int pos = holder.getLayoutPosition();//得到当前点击item的位置pos
+                mListener.ItemLongClickListener(holder.itemView, pos);//把事件交给我们实现的接口那里处理
+                return true;
             });
         }
     }
@@ -86,6 +83,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         TextView mTv;
         TextView item_home_text1;
         LinearLayout item_home;
+
         MyViewHolder(View itemView) {
             super(itemView);
             mTv = itemView.findViewById(R.id.textView);

@@ -16,6 +16,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.zcc.smarthome.R;
 
+/**
+ * 设备控制界面，适配器
+ */
 
 public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdapter.ViewHolder> {
 
@@ -62,16 +65,13 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
                 itemOnClickListener.onClick(position);
             }
         });
-        holder.allLaunch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
-                rotateAnimation.setDuration(2000);
-                rotateAnimation.setFillAfter(true);
-                holder.ivListModeLaunch.startAnimation(rotateAnimation);
-                if (launchOnClickListener != null) {
-                    launchOnClickListener.onClick(position);
-                }
+        holder.allLaunch.setOnClickListener(v -> {
+            RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+            rotateAnimation.setDuration(2000);
+            rotateAnimation.setFillAfter(true);
+            holder.ivListModeLaunch.startAnimation(rotateAnimation);
+            if (launchOnClickListener != null) {
+                launchOnClickListener.onClick(position);
             }
         });
     }

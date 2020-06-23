@@ -9,9 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.gyf.barlibrary.ImmersionBar;
 import com.gyf.barlibrary.OSUtils;
 
-/**
- * Created by Administrator on 2017/7/25 0025.
- */
 
 public class BaseActivity extends AppCompatActivity {
 
