@@ -32,7 +32,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         this.context = context;
         this.lists = lists;
         for (int i = 0; i < lists.size(); i++) {
-            heights.add((int) (200 + Math.random() * 200));
+            heights.add((int) (400 + Math.random() * 250));
         }
         color.add("#FFFFFF");
         color.add("#FFE4B5");
