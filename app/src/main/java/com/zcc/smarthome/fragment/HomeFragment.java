@@ -60,8 +60,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         if (WelcomeActivity.jsonWeather != null) {
             JSONObject jsonObject = WelcomeActivity.jsonWeather.getJSONObject("result").getJSONObject("result");
             JSONArray jsonArray = WelcomeActivity.jsonWeather.getJSONObject("result").getJSONObject("result").getJSONArray("index");
-            textView8.setText(String.format("%s%s  -- °C", jsonObject.getString("weather"), jsonObject.getString("temp")));
-            textView9.setText(String.format("%s%s", jsonObject.getString("date"), jsonObject.getString("week")));
+            textView8.setText(String.format("%s  %s°C", jsonObject.getString("weather"), jsonObject.getString("temp")));
+            textView9.setText(String.format("%s %s", jsonObject.getString("date"), jsonObject.getString("week")));
             textView14.setText(String.format("%s", jsonArray.getJSONObject((int) (Math.random() * 10 % 7)).getString("detail")));
         }
         mBanner.setAdapter(new BGABanner.Adapter<ImageView, String>() {
