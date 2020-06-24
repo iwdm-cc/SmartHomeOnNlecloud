@@ -1,32 +1,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentTop="true"
-    android:layout_marginStart="0dp"
-    android:layout_marginTop="0dp"
     android:orientation="vertical">
 
     <!--通知栏高度：20dp -->
-    <android.support.v7.widget.CardView
+    <com.qmuiteam.qmui.layout.QMUIRelativeLayout
+        android:id="@+id/home_head"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        app:cardBackgroundColor="#57b9f7"
-        app:cardCornerRadius="20dp"
-        app:contentPadding="5dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="20dp"
+        android:background="#57b9f7">
 
             <ImageView
                 android:id="@+id/home_img"
                 android:layout_width="47dp"
                 android:layout_height="45dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginStart="5dp"
                 android:src="@drawable/clund" />
 
@@ -35,11 +27,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/home_img"
                 android:text="TextView" />
 
             <TextView
                 android:id="@+id/textView8"
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -79,39 +73,19 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="有较强降水，建议您选择在室内进行健身休闲运动。" />
-        </RelativeLayout>
 
 
-    </android.support.v7.widget.CardView>
+    </com.qmuiteam.qmui.layout.QMUIRelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/homere"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
+        android:layout_height="wrap_content">
 
     </android.support.v7.widget.RecyclerView>
 
-    <cn.bingoogolapple.bgabanner.BGABanner
-        android:id="@+id/banner_main_depth"
-        style="@style/BannerDefaultStyle"
-        android:layout_height="150dp"
-        android:layout_marginTop="15dp"
-        android:visibility="gone"
-        app:banner_transitionEffect="depth" />
 
-    <android.support.design.internal.FlowLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        app:itemSpacing="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:lineSpacing="8dp">
-
-    </android.support.design.internal.FlowLayout>
 
 
 </LinearLayout>

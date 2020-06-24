@@ -11,7 +11,7 @@ android {
         versionCode 1
         versionName "1.00.00"
         multiDexEnabled true
-        renderscriptTargetApi 25
+        renderscriptTargetApi 28
         renderscriptSupportModeEnabled true
     }
 
@@ -22,11 +22,6 @@ android {
         }
     }
 
-//    // jni重定向
-//    sourceSets.main {
-//        jniLibs.srcDir 'libs' // 指的是工程目录下的libs目录不是jni目录下的，jni目录下的固定为jniLibs，ndk编译出来的放在jni下的libs目录
-//        jni.srcDirs = [] // 取消自动调用NDK编译(设置jni源文件为空)
-//    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

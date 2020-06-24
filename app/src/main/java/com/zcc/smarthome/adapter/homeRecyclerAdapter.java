@@ -22,14 +22,14 @@ import java.util.List;
  * 主界面，流布局适配器
  */
 
-public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
+public class homeRecyclerAdapter extends RecyclerView.Adapter<homeRecyclerAdapter.MyViewHolder> {
     private JSONArray lists;
     private Context context;
     private List<Integer> heights = new ArrayList<>();
     private OnItemClickListener mListener;
     private ArrayList<String> color = new ArrayList<>(Arrays.asList("#FFFFFF", "#FFE4B5", "#CAE1FF", "#7CCD7C"));
 
-    public MyRecyclerAdapter(Context context, JSONArray lists) {
+    public homeRecyclerAdapter(Context context, JSONArray lists) {
         this.context = context;
         this.lists = lists;
         for (int i = 0; i < lists.size(); i++) {
@@ -76,7 +76,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 
         JSONObject jsonObject = lists.getJSONObject(position);
         holder.mTv.setText(jsonObject.getString("Name"));//为控件绑定数据
-        holder.item_home_text1.setText(String.format("%s %s", jsonObject.getString("Value"), jsonObject.getString("Unit")));//为控件绑定数据
+        holder.item_home_text1.setText(String.format("%s%s", jsonObject.getString("Value"), jsonObject.getString("Unit")));//为控件绑定数据
         if (mListener != null) {//如果设置了监听那么它就不为空，然后回调相应的方法
             holder.itemView.setOnClickListener(v -> {
                 int pos = holder.getLayoutPosition();//得到当前点击item的位置pos
