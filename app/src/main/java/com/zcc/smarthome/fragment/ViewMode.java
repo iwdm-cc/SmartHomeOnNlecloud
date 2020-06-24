@@ -5,7 +5,11 @@ import android.arch.lifecycle.ViewModel;
 
 import com.alibaba.fastjson.JSONArray;
 
-public class ViewMode extends ViewModel {
+/*
+ * 数据模型
+ * */
+
+class ViewMode extends ViewModel {
     private MutableLiveData<JSONArray> jsonArrayMutableLiveData;
     private MutableLiveData<JSONArray> homejsonArrayMutableLiveData;
 
