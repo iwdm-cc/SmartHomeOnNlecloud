@@ -15,7 +15,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        app:cardBackgroundColor="#40b1f9"
+        app:cardBackgroundColor="#57b9f7"
         app:cardCornerRadius="20dp"
         app:contentPadding="5dp">
 
@@ -27,61 +27,45 @@
                 android:id="@+id/home_img"
                 android:layout_width="47dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="-113dp"
+                android:layout_marginStart="5dp"
                 android:src="@drawable/clund" />
 
             <TextView
-                android:textColor="#fff"
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="TextView" />
-
-            <TextView
-                android:textColor="#fff"
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/home_img"
                 android:text="TextView" />
 
             <TextView
-                android:textColor="#fff"
-                android:id="@+id/textView10"
+                android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/textView9"
                 android:text="TextView" />
 
-            <TextView
-                android:textColor="#fff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_alignEnd="@+id/textView10"
-                android:layout_alignBottom="@+id/textView10"
-                android:layout_marginEnd="-23dp"
-                android:layout_marginBottom="-53dp"
-                android:text="TextView" />
 
             <TextView
                 android:textColor="#fff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_alignBottom="@+id/home_img"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="105dp"
                 android:text="TextView" />
 
             <TextView
-                android:textColor="#fff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="35dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="26dp"
                 android:layout_marginEnd="113dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#fff" />
 
             <TextView
                 android:textColor="#fff"
@@ -91,7 +75,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="0dp"
-                android:layout_marginBottom="7dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="有较强降水，建议您选择在室内进行健身休闲运动。" />

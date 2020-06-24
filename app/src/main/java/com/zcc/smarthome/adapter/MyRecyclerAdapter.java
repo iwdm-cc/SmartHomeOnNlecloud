@@ -3,7 +3,6 @@ package com.zcc.smarthome.adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +11,11 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.qmuiteam.qmui.layout.QMUILinearLayout;
 import com.zcc.smarthome.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,18 +27,14 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
     private Context context;
     private List<Integer> heights = new ArrayList<>();
     private OnItemClickListener mListener;
-    private ArrayList<String> color = new ArrayList<>();
+    private ArrayList<String> color = new ArrayList<>(Arrays.asList("#FFFFFF", "#FFE4B5", "#CAE1FF", "#7CCD7C"));
 
     public MyRecyclerAdapter(Context context, JSONArray lists) {
         this.context = context;
         this.lists = lists;
         for (int i = 0; i < lists.size(); i++) {
-            heights.add((int) (200 + Math.random() * 200));
+            heights.add((int) (400 + Math.random() * 250));
         }
-        color.add("#FFFFFF");
-        color.add("#FFE4B5");
-        color.add("#CAE1FF");
-        color.add("#7CCD7C");
 
     }
 
@@ -70,7 +67,13 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         holder.itemView.setLayoutParams(params);//把params设置给item布局
 
 //        Log.i("once", "onBindViewHolder: " + color.get(position % 4));
-        holder.item_home.setCardBackgroundColor(Color.parseColor(color.get(position % 4)));
+
+
+//        holder.item_home.setShadowColor(Color.parseColor("#ff0000"));
+//        holder.item_home.setElevation(50);
+        holder.item_home.setBackgroundColor(Color.parseColor(color.get(position % 4)));
+        holder.item_home.setRadius(30);
+
         JSONObject jsonObject = lists.getJSONObject(position);
         holder.mTv.setText(jsonObject.getString("Name"));//为控件绑定数据
         holder.item_home_text1.setText(String.format("%s %s", jsonObject.getString("Value"), jsonObject.getString("Unit")));//为控件绑定数据
@@ -95,7 +98,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView mTv;
         TextView item_home_text1;
-        CardView item_home;
+        QMUILinearLayout item_home;
 
         MyViewHolder(View itemView) {
             super(itemView);
