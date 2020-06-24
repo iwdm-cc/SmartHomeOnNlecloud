@@ -16,8 +16,7 @@
             android:layout_gravity="center"
             android:text="修改个人资料"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
 

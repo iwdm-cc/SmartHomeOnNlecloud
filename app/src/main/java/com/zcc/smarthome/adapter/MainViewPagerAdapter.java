@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
 
     List<Fragment> list;
     List<String> title;
+    ArrayList<Integer> nums = new ArrayList<>();
 
     public MainViewPagerAdapter(FragmentManager fm, List<Fragment> list) {
         super(fm);
