@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 import com.zcc.smarthome.MainActivity;
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.constant.Constant;
@@ -30,6 +31,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        QMUIStatusBarHelper.setStatusBarLightMode(this);
         setContentView(R.layout.activity_welcome);
         new Handler().postDelayed(() -> {
             Intent intent = new Intent();

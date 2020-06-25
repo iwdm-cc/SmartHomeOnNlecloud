@@ -8,22 +8,24 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="5dp"
-    android:background="#ff0">
+    android:background="#ff0001">
 
     <TextView
         android:id="@+id/item_home_text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textColor="#efefef"
+        android:textSize="30sp"
         android:text="19.9" />
 
     <TextView
         android:id="@+id/textView"
+        android:textColor="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="温度"
-        android:textSize="30sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent" />
 

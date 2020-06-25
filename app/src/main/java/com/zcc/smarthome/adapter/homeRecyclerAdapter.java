@@ -27,7 +27,7 @@ public class homeRecyclerAdapter extends RecyclerView.Adapter<homeRecyclerAdapte
     private Context context;
     private List<Integer> heights = new ArrayList<>();
     private OnItemClickListener mListener;
-    private ArrayList<String> color = new ArrayList<>(Arrays.asList("#FFFFFF", "#FFE4B5", "#CAE1FF", "#7CCD7C"));
+    private ArrayList<String> color = new ArrayList<>(Arrays.asList("#ccFE4365", "#ccFC9D9A", "#ccF8CDAD", "#ccC8C8A9", "#cc83AF9B"));
 
     public homeRecyclerAdapter(Context context, JSONArray lists) {
         this.context = context;
@@ -71,7 +71,7 @@ public class homeRecyclerAdapter extends RecyclerView.Adapter<homeRecyclerAdapte
 
 //        holder.item_home.setShadowColor(Color.parseColor("#ff0000"));
 //        holder.item_home.setElevation(50);
-        holder.item_home.setBackgroundColor(Color.parseColor(color.get(position % 4)));
+        holder.item_home.setBackgroundColor(Color.parseColor(color.get(position % color.size())));
         holder.item_home.setRadius(30);
 
         JSONObject jsonObject = lists.getJSONObject(position);

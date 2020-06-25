@@ -16,6 +16,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.qmuiteam.qmui.layout.IQMUILayout;
 import com.qmuiteam.qmui.layout.QMUIRelativeLayout;
+import com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout;
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.activity.WelcomeActivity;
 import com.zcc.smarthome.adapter.homeRecyclerAdapter;
@@ -28,6 +29,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private TextView textView14;
     private RecyclerView mRecyclerView;
     private QMUIRelativeLayout home_head;
+    private QMUIPullRefreshLayout home_pull;
 
     private homeRecyclerAdapter adapter;
 
@@ -44,7 +46,32 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         textView14 = view.findViewById(R.id.textView14);
         mRecyclerView = view.findViewById(R.id.homere);
         home_head = view.findViewById(R.id.home_head);
-        home_head.setRadius(40, IQMUILayout.HIDE_RADIUS_SIDE_TOP);
+        home_pull = view.findViewById(R.id.home_pull);
+
+        home_head.setRadius(88, IQMUILayout.HIDE_RADIUS_SIDE_TOP);
+
+        home_pull.setOnPullListener(new QMUIPullRefreshLayout.OnPullListener() {
+            @Override
+            public void onMoveTarget(int offset) {
+
+            }
+
+            @Override
+            public void onMoveRefreshView(int offset) {
+
+            }
+
+            @Override
+            public void onRefresh() {
+                home_pull.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(mActivity, "刷新成功！", Toast.LENGTH_SHORT).show();
+                        home_pull.finishRefresh();
+                    }
+                }, 2000);
+            }
+        });
 
     }
 
@@ -65,7 +92,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         if (WelcomeActivity.jsonWeather != null) {
             JSONObject jsonObject = WelcomeActivity.jsonWeather.getJSONObject("result").getJSONObject("result");
             JSONArray jsonArray = WelcomeActivity.jsonWeather.getJSONObject("result").getJSONObject("result").getJSONArray("index");
-            textView8.setText(String.format("%s  %s°C", jsonObject.getString("weather"), jsonObject.getString("temp")));
+            textView8.setText(String.format("%s %s°C", jsonObject.getString("weather"), jsonObject.getString("temp")));
             textView9.setText(String.format("%s %s", jsonObject.getString("date"), jsonObject.getString("week")));
             textView14.setText(String.format("%s", jsonArray.getJSONObject((int) (Math.random() * 10 % 7)).getString("detail")));
         }
