@@ -20,7 +20,6 @@
             android:layout_height="50dp"
             android:layout_below="@+id/textView9"
             android:layout_alignStart="@+id/textView9"
-
             android:src="@drawable/clund" />
 
         <TextView
@@ -29,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="TextView"
+            android:text="2020-06-06"
             android:textColor="#efefef"
             android:textSize="20sp" />
 
@@ -40,7 +39,7 @@
             android:layout_alignTop="@+id/home_img"
             android:layout_marginStart="20dp"
             android:layout_toEndOf="@+id/home_img"
-            android:text="TextView"
+            android:text="25度"
             android:textColor="#efefef"
             android:textSize="40sp" />
 
