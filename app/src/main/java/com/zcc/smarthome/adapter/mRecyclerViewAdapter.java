@@ -1,7 +1,6 @@
 package com.zcc.smarthome.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -56,10 +55,9 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
 
         holder.title.setText(String.format("%s", jsonObject.getString("Name")));
         holder.openorclose.setText(jsonObject.getString("Value").equals("false") ? "已关闭" : "已打开");
-        holder.tvName.setTextColor(flog ? Color.BLACK : Color.BLUE);
+        holder.time.setText(jsonObject.getString("RecordTime"));
+        holder.DeviceID.setText(jsonObject.getString("DeviceID"));
 
-        holder.tvName.setText(String.format("%s", jsonObject.getString("Name")));
-        holder.vole.setText(String.format("%s %s", jsonObject.getString("Value"), jsonObject.getString("Unit")));
         holder.allListMode.setOnClickListener(v -> {
             if (itemOnClickListener != null) {
                 itemOnClickListener.onClick(position);
@@ -69,7 +67,7 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
             RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
             rotateAnimation.setDuration(2000);
             rotateAnimation.setFillAfter(true);
-            holder.ivListModeLaunch.startAnimation(rotateAnimation);
+            holder.ivLaunch.startAnimation(rotateAnimation);
             if (launchOnClickListener != null) {
                 launchOnClickListener.onClick(position);
             }
@@ -85,23 +83,25 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvName;
         LinearLayout allListMode;
         LinearLayout allLaunch;
-        ImageView ivListModeLaunch;
-        TextView vole;
+        ImageView ivLaunch;
+
         TextView title; //标题
         TextView openorclose; //开关与否
+        TextView time; //开关与否
+        TextView DeviceID; //开关与否
 
         ViewHolder(View view) {
             super(view);
-            ivListModeLaunch = view.findViewById(R.id.ivLaunch);
-            tvName = view.findViewById(R.id.tvName);
+            ivLaunch = view.findViewById(R.id.ivLaunch);
             allListMode = view.findViewById(R.id.allListMode);
             allLaunch = view.findViewById(R.id.allLaunch);
-            vole = view.findViewById(R.id.vole);
+
             title = view.findViewById(R.id.title);
             openorclose = view.findViewById(R.id.openorclose);
+            time = view.findViewById(R.id.time);
+            DeviceID = view.findViewById(R.id.DeviceID);
         }
     }
 

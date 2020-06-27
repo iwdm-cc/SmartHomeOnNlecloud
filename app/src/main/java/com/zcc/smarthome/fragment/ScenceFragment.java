@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -17,7 +16,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.gyf.barlibrary.ImmersionBar;
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.adapter.mRecyclerViewMyScenceAdapter;
-import com.zcc.smarthome.bean.ScencesListBean;
 import com.zcc.smarthome.constant.Constant;
 import com.zcc.smarthome.utils.OkHttpUtils;
 
@@ -44,8 +42,7 @@ public class ScenceFragment extends BaseFragment {
                 Toast.makeText(mActivity, "数量" + jsonArray.size(), Toast.LENGTH_SHORT).show();
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    beanList.add(new ScencesListBean().setStrategyId(jsonObject.getString("StrategyId"))
-                            .setTitle(jsonObject.getString("ConditionCn")));
+                    beanList.add(jsonObject);
                 }
                 rV_Mode();
             } else if (msg.what == TOASTED) {
@@ -56,13 +53,12 @@ public class ScenceFragment extends BaseFragment {
     };
     private mRecyclerViewMyScenceAdapter mScenceAdapter;
 
-    private List<ScencesListBean> beanList = new ArrayList<>();
+    private List<JSONObject> beanList = new ArrayList<>();
 
     private Toolbar toolbarl;
 
     private RecyclerView rVMyScences;
 
-    private DividerItemDecoration dividerItemDecoration;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -98,43 +94,36 @@ public class ScenceFragment extends BaseFragment {
         });
 
         rVMyScences = view.findViewById(R.id.rVMyScences);
-        dividerItemDecoration = new DividerItemDecoration(
-                getActivity(), DividerItemDecoration.VERTICAL);
+
 
     }
 
     private void rV_Mode() {
-        rVMyScences.removeItemDecoration(dividerItemDecoration);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mScenceAdapter = new mRecyclerViewMyScenceAdapter(beanList, getActivity());
-        mScenceAdapter.setOnLaunchClickListener(new mRecyclerViewMyScenceAdapter.OnLaunchClickListener() {
-            @Override
-            public void onClick(int position) {
-                String id = beanList.get(position).getStrategyId();
-                OkHttpUtils.getInstance().setEnable(id, Math.random() < 0.5 ? "true" : "false", new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        handler.obtainMessage(TOASTED, "请检查网络！").sendToTarget();
-                    }
+        mScenceAdapter.setOnLaunchClickListener(position -> {
+            String id = beanList.get(position).getString("StrategyId");
+            String open = beanList.get(position).getByte("Nullity") == 1 ? "true" : "false";
+            OkHttpUtils.getInstance().setEnable(id, open, new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    handler.obtainMessage(TOASTED, "请检查网络！").sendToTarget();
+                }
 
-                    @Override
-                    public void onResponse(Call call, Response response) {
-                        handler.obtainMessage(TOASTED, "开启成功").sendToTarget();
+                @Override
+                public void onResponse(Call call, Response response) {
+                    handler.obtainMessage(TOASTED, "开启成功").sendToTarget();
 
-                    }
-                });
-            }
+                }
+            });
         });
-        mScenceAdapter.setOnItemClickListener(new mRecyclerViewMyScenceAdapter.OnItemClickListener() {
-            @Override
-            public void onClick(int position) {
+        mScenceAdapter.setOnItemClickListener(position -> {
 //                handler.obtainMessage(TOASTED, "开启成功" + position).sendToTarget();
-            }
         });
         rVMyScences.setLayoutManager(layoutManager);
-        rVMyScences.addItemDecoration(dividerItemDecoration);
         rVMyScences.setAdapter(mScenceAdapter);
     }
 

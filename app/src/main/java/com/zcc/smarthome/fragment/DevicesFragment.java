@@ -6,7 +6,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -164,13 +163,12 @@ public class DevicesFragment extends BaseFragment {
     }
 
     private void datazc(JSONArray objects) {
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(
-                getActivity(), DividerItemDecoration.VERTICAL);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerViewAdapter mScenceAdapter = new mRecyclerViewAdapter(objects, getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(dividerItemDecoration);
+
         recyclerView.setAdapter(mScenceAdapter);
         mScenceAdapter.setOnItemClickListener(position -> showDevicesInfDialog());
         mScenceAdapter.setOnLaunchClickListener(position -> {

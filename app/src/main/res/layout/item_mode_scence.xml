@@ -1,59 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/allListMode"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:padding="6dp"
-    android:background="@drawable/item_list_mode"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <!--子布局控件-->
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/clund" />
+    <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+        android:id="@+id/scence_img"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/yingyuan" />
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:text="回家模式"
-            android:textSize="35sp" />
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="电影模式"
+        android:textSize="30sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-            android:maxLines="1"
+        android:maxLines="1"
+        android:text="场景ID：645"
         android:textColor="#5F000000"
-            android:text="回家模式"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
-        <LinearLayout
-            android:id="@+id/allLaunch"
+    <LinearLayout
+        android:id="@+id/allLaunch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/ic_button_bg_normal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/ivLaunch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:background="@drawable/selector_button_bg"
-            android:padding="5dp">
+            android:paddingEnd="5dp"
+            android:src="@drawable/ic_launch" />
 
-            <ImageView
-                android:id="@+id/ivLaunch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="5dp"
-                android:src="@drawable/ic_launch" />
+        <TextView
+            android:id="@+id/text_launch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="启动"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="启动"
-                android:layout_gravity="center"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-
-        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
