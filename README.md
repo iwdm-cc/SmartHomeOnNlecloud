@@ -4,7 +4,7 @@
 
 #### 部分截图：
 
-![](./screenshot/home.jpg)
+![](./screenshot/home.jpg)![](./screenshot/devices.jpg)![](./screenshot/scence.jpg)![](./screenshot/mine.jpg)
 
 #### 用到的框架：
 
