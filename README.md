@@ -4,7 +4,7 @@
 
 #### 部分截图：
 
-<br />![](https://cdn.nlark.com/yuque/0/2020/png/801643/1593227841302-94ce71a6-c6bf-4120-9590-2c2194674825.png#align=left&display=inline&height=768&margin=%5Bobject%20Object%5D&originHeight=768&originWidth=473&size=0&status=done&style=none&width=473)<br />
+![](./screenshot/home.jpg)
 
 #### 用到的框架：
 
