@@ -1,119 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/colorAccent">
+        android:layout_height="250dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="修改个人资料"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-    </android.support.v7.widget.Toolbar>
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#cc26AAFD" />
 
 
-    <LinearLayout
+
+        <com.qmuiteam.qmui.layout.QMUIRelativeLayout
+            android:id="@+id/mini_head"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="20dp"
+            android:background="#fff">
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mayun"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="6dp"
+                android:text="13333333333"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/mayun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="48dp"
+                android:text="Mayun"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/phone"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_toEndOf="@+id/phone"
+                android:text="去修改>>"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+        </com.qmuiteam.qmui.layout.QMUIRelativeLayout>
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:layout_width="100dp"
+            android:layout_marginTop="40dp"
+            android:layout_height="100dp"
+            app:qmui_corner_radius="50dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/minicon"/>
+    </FrameLayout>
+
+    <com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
-        <!--用户名-->
-        <RelativeLayout
+        <com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView
+            android:id="@+id/item_1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_bg"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
+            android:layout_height="50dp"
+            app:qmui_accessory_type="chevron"
+            app:qmui_commonList_titleColor="#000"
+            app:qmui_orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"
-                android:layout_toStartOf="@+id/ivname_goneAll">
+        </com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableStart="@mipmap/ic_perm_identity_black_24dp"
-                    android:hint="用户名"
-                    android:textColor="@color/black0"
-                    android:textColorHint="@color/black0"
-                    android:textSize="16sp" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <ImageView
-                android:id="@+id/ivname_goneAll"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:src="@mipmap/ic_cancel_black_24dp" />
-
-        </RelativeLayout>
-
-        <!--邮箱-->
-        <RelativeLayout
+        <com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView
+            android:id="@+id/item_2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_bg"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            app:qmui_accessory_type="chevron"
+            app:qmui_commonList_titleColor="#000"
+            app:qmui_orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"
-                android:layout_toStartOf="@+id/cb_eye_gone3">
+        </com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawableStart="@drawable/shape_email"
-                    android:hint="邮箱"
-                    android:textColorHint="@color/black0"
-                    android:textSize="16sp" />
+        <com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView
+            android:id="@+id/item_3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            app:qmui_accessory_type="chevron"
+            app:qmui_commonList_titleColor="#000"
+            app:qmui_orientation="vertical">
 
-            </android.support.design.widget.TextInputLayout>
+        </com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView>
 
+        <com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView
+            android:id="@+id/item_4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            app:qmui_accessory_type="chevron"
+            app:qmui_commonList_titleColor="#000"
+            app:qmui_orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/cb_eye_gone3"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/selector_cb_eye_"
-                android:button="@null"
-                android:visibility="invisible" />
+        </com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView>
 
 
-        </RelativeLayout>
-
-        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
-            android:layout_width="230dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="30dp"
-            android:text="修改" />
-
-
-    </LinearLayout>
+    </com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView>
 
 
 </LinearLayout>

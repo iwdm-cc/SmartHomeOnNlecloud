@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.gyf.barlibrary.ImmersionBar;
+import com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout;
 import com.zcc.smarthome.R;
 import com.zcc.smarthome.adapter.mRecyclerViewMyScenceAdapter;
 import com.zcc.smarthome.constant.Constant;
@@ -31,6 +32,14 @@ import okhttp3.Response;
 public class ScenceFragment extends BaseFragment {
     final private static int GDATA = 1;
     final private static int TOASTED = 2;
+    private mRecyclerViewMyScenceAdapter mScenceAdapter;
+
+    private List<JSONObject> beanList = new ArrayList<>();
+
+    private Toolbar toolbarl;
+
+    private RecyclerView rVMyScences;
+    private QMUIPullRefreshLayout scence_pull;
     @SuppressLint("HandlerLeak")
     Handler handler = new Handler() {
 
@@ -39,7 +48,7 @@ public class ScenceFragment extends BaseFragment {
             if (msg.what == GDATA) {
                 beanList.clear();
                 JSONArray jsonArray = (JSONArray) msg.obj;
-                Toast.makeText(mActivity, "数量" + jsonArray.size(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mActivity, "数量" + jsonArray.size(), Toast.LENGTH_SHORT).show();
                 for (int i = 0; i < jsonArray.size(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     beanList.add(jsonObject);
@@ -51,13 +60,6 @@ public class ScenceFragment extends BaseFragment {
             super.handleMessage(msg);
         }
     };
-    private mRecyclerViewMyScenceAdapter mScenceAdapter;
-
-    private List<JSONObject> beanList = new ArrayList<>();
-
-    private Toolbar toolbarl;
-
-    private RecyclerView rVMyScences;
 
 
     @Override
@@ -76,7 +78,34 @@ public class ScenceFragment extends BaseFragment {
     protected void initView(View view) {
         toolbarl = view.findViewById(R.id.toolbar);
 
+        getScenceData();
 
+        rVMyScences = view.findViewById(R.id.rVMyScences);
+        scence_pull = view.findViewById(R.id.scence_pull);
+        scence_pull.setOnPullListener(new QMUIPullRefreshLayout.OnPullListener() {
+            @Override
+            public void onMoveTarget(int offset) {
+
+            }
+
+            @Override
+            public void onMoveRefreshView(int offset) {
+
+            }
+
+            @Override
+            public void onRefresh() {
+                getScenceData();
+                scence_pull.postDelayed(() -> {
+                    Toast.makeText(mActivity, "刷新成功！", Toast.LENGTH_SHORT).show();
+                    scence_pull.finishRefresh();
+                }, 1000);
+            }
+        });
+
+    }
+
+    private void getScenceData() {
         OkHttpUtils.getInstance().getStrategys(Constant.ProjectID, Constant.DeviceID, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -92,14 +121,9 @@ public class ScenceFragment extends BaseFragment {
                 }
             }
         });
-
-        rVMyScences = view.findViewById(R.id.rVMyScences);
-
-
     }
 
     private void rV_Mode() {
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -115,6 +139,7 @@ public class ScenceFragment extends BaseFragment {
 
                 @Override
                 public void onResponse(Call call, Response response) {
+                    handler.postDelayed(() -> getScenceData(),1000);
                     handler.obtainMessage(TOASTED, "开启成功").sendToTarget();
 
                 }
